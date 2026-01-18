@@ -1,0 +1,2 @@
+comfy-cli
+huggingface_hub

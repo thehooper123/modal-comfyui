@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Models and Custom nodes
+models.py
+plugins.py
+
+# Workflow
+workflow_api.json
