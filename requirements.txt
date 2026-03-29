@@ -1,0 +1,34 @@
+# Core dependencies
+python-dotenv==1.0.0
+cryptography==41.0.7
+requests==2.31.0
+google-generativeai==0.3.0
+
+# UI
+tk==0.0.1
+
+# Video processing
+moviepy==1.0.3
+imageio==2.34.0
+imageio-ffmpeg==0.4.9
+
+# Social media APIs
+python-tiktok==0.1.4
+instagrapi==2.0.0
+google-auth-oauthlib==1.2.0
+google-auth-httplib2==0.2.0
+google-api-python-client==2.108.0
+
+# Web framework (for n8n callbacks)
+flask==3.0.0
+flask-cors==4.0.0
+
+# Database
+sqlite3==3.45.0
+
+# Optional: async support
+aiohttp==3.9.1
+
+# Development
+black==23.12.1
+flake8==6.1.0

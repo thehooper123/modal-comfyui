@@ -112,7 +112,7 @@ image = (
 # download models
 image = image.env({
     "HF_HUB_ENABLE_HF_TRANSFER": "1",
-    "HF_TOKEN": "<REDACTED>"
+    "HF_TOKEN": os.getenv("HF_TOKEN", "")  # Set via Modal secrets
 }).run_function(
     download_all, volumes={"/cache": vol, "/model-weights": model_weights_vol}
 )

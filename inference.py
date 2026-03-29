@@ -15,9 +15,9 @@ from typing import Optional
 
 
 class ComfyUIClient:
-    def __init__(self, server_url: str = "http://127.0.0.1:8188"):
+    def __init__(self, server_url: str = "https://chlevin135--modal-comfyui-ui.modal.run"):
         self.server_url = server_url
-        self.ws_url = server_url.replace("http", "ws")
+        self.ws_url = server_url.replace("https", "wss").replace("http", "ws")
         
     def get_object_info(self, node_class: str) -> dict:
         """Fetch the exact schema/input info for a given node class."""

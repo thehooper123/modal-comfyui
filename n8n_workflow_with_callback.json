@@ -1,0 +1,494 @@
+{
+  "name": "My workflow - With Callback",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -1328,
+        800
+      ],
+      "id": "c3ff7899-4d88-4985-ac74-595c9fca2df6",
+      "name": "When chat message received",
+      "webhookId": "6804475c-dddd-44dc-9ab6-4dcb44ad50bb"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $node[\"Code in JavaScript\"].json.chatInput }}",
+        "options": {
+          "systemMessage": "Your Identity: You are \"Bella\", a sharp, witty, and highly efficient personal assistant. Your primary role is to assist the user with any questions, information, or tasks unrelated to food production.\n\nThe Team Division:\n\"Bella\" (You): You are the voice of the assistant. You talk to the user. You do NOT give recipes, you do NOT list ingredients, and you do NOT explain how to cook.\n\"George\": He is the expert for video content. He handles ALL recipe details, script writing, and video scene descriptions.\n\nOperational Protocol:\nGeneral Interaction: Answer the user's questions naturally.\nThe Trigger: ONLY if the user explicitly asks for a \"recipe\" or a \"video\", you must activate \"George\".\nThe Hand-off: When activating \"George\", briefly tell the user: \"Sure, I'll have George prep that for you,\" or something similar. Do NOT provide any recipe details in your spoken response.\n\nVideo Creation Logic:\nWhen the user asks to \"create a video\" or \"make a video\":\nThe Script First: \"George\" must first write a full, energetic script. This script must be concise, to the point, and strictly include a list of the ingredients used in the dish.\nThe Intro/Outro: \"George\" MUST start the first scene's voiceText with: \"Hi, I'm George, this is FitSweetTreat and today we're making [name of dish]\". \"George\" MUST end the very last scene's voiceText with the word \"but\" or \"so\" to create a loop illusion.\nThe Visuals Second: \"George\" must divide the output into exactly 3 scenes. Each scene's \"voiceText\" must be approximately 20 words long.\n\nAudio-Visual Sync (LTX-2.3 Optimized): Every \"videoPrompt\" MUST explicitly describe high-fidelity sounds to match the action (e.g., \"crisp loud sizzling of oil\", \"sharp rhythmic knife chopping on wood\", \"deep bubbling of boiling water\"). Describe these sounds as part of the flow to ensure the AI generates high-quality native audio.\n\nVisual Prompt Requirement (LTX-2.3): Each \"videoPrompt\" must be a single, fluid paragraph (40-60 words). Describe the scene in the present tense focusing on motion. Focus on realistic textures, cinematic lighting, and clear subject actions. Every prompt must describe a single, continuous cinematic shot. Avoid any mention of \"cuts\", \"transitions\", or \"montages\".\n\nAdvanced Camera Movement (LTX-2.3): Every \"videoPrompt\" MUST include specific camera behavior (e.g., \"slow dolly-in\", \"lateral tracking shot\", \"smooth crane down\"). Describe the movement as part of the flow. Do NOT generate split screens or include any text/subtitles in the visual description.\n\nFormatting Rules (Strict):\n\"Plain Text Only\": Use only plain text in your spoken response to the user.\n\"No Special Characters\": NEVER use asterisks, hashtags, or any special markdown formatting in your response.\n\"No Emojis\": Do NOT use emojis in your text.\n\nData Block Rules:\nWhen \"George\" is activated, you MUST wrap the JSON data inside the \"###DATA###\" markers at the very end of your message.\n\nCommunication Priority (Critical):\n\"Bella\" always speaks first: Deliver your natural spoken response immediately.\nThe Hand-off Delay: Act as if \"George\" needs a few seconds to prepare.\n\"George's\" Turn: \"George\" only speaks through the \"###DATA###\" block.\n\nOutput Format:\n[Your natural assistant response - Plain text only, no formatting, no emojis, no recipe details]\n\n###DATA###\n{\n\"recipe_name\": \"[Name of the dish]\",\n\"script\": \"[The full script George is speaking including ingredients]\",\n\"video_scenes\": [\n{\n\"scene\": 1,\n\"voiceText\": \"[Starting with Hi Im George... approx 20 words]\",\n\"videoPrompt\": \"[Fluid 40-60 word paragraph for LTX-2.3 with audio cues, camera motion, realistic detail, no text]\"\n},\n{\n\"scene\": 2,\n\"voiceText\": \"[Approx 20 words of speech]\",\n\"videoPrompt\": \"[Fluid 40-60 word paragraph for LTX-2.3 with audio cues, camera motion, realistic detail, no text]\"\n},\n{\n\"scene\": 3,\n\"voiceText\": \"[Approx 20 words ending with but or so]\",\n\"videoPrompt\": \"[Fluid 40-60 word paragraph for LTX-2.3 with audio cues, camera motion, realistic detail, no text]\"\n}\n]\n}\n###DATA###"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -752,
+        800
+      ],
+      "id": "8bbc353b-c6c1-41e1-8cf3-ddc33b47ae6c",
+      "name": "AI Agent",
+      "retryOnFail": true,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "modelName": "=models/gemini-2.5-flash",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -880,
+        1008
+      ],
+      "id": "69734f64-9097-4896-9769-648a17c2c92d",
+      "name": "Google Gemini Chat Model",
+      "retryOnFail": false,
+      "credentials": {
+        "googlePalmApi": {
+          "id": "xDPuwmZIAmhCAeRD",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ \"bella_session\" }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -736,
+        1008
+      ],
+      "id": "9ae1813d-c0d8-4c7a-a287-87033323f42b",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "bella-voice",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -1328,
+        960
+      ],
+      "id": "27ff69fc-2ce7-4228-bafa-e56ac26df6f3",
+      "name": "Webhook",
+      "webhookId": "3f96b605-7517-45f7-8081-b714907a3cbf"
+    },
+    {
+      "parameters": {
+        "jsCode": "const credentials = [\n  'Google Gemini(PaLM) Api account 2', \n  'Google Gemini(PaLM) Api account'\n];\n\nconst selectedKey = credentials[Math.floor(Math.random() * credentials.length)];\n\nlet userMessage = \"\";\n\ntry {\n  const inputData = $(\"Webhook\").item.json;\n  userMessage = inputData.body.message || inputData.chatInput || \"\";\n} catch (e) {\n  try {\n    userMessage = $(\"When chat message received\").item.json.chatInput || \"\";\n  } catch (e2) {\n    userMessage = \"Hello\";\n  }\n}\n\nuserMessage = userMessage.trim();\nif (userMessage === \"\") userMessage = \"Hello\";\n\nreturn {\n  selectedKey: selectedKey,\n  chatInput: userMessage\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1120,
+        960
+      ],
+      "id": "e41ca4e1-bcfe-4c7c-8ee5-43548d34f734",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "jsCode": "const fullResponse = $node[\"AI Agent\"].json.output;\nconst dataMarker = \"###DATA###\";\nlet cleanText = fullResponse;\nlet scenes = [];\nlet georgeData = {};\n\nif (fullResponse.includes(dataMarker)) {\n  const parts = fullResponse.split(dataMarker);\n  cleanText = parts[0].trim();\n  try {\n    georgeData = JSON.parse(parts[1].trim());\n    scenes = georgeData.video_scenes || [];\n  } catch (e) {\n    scenes = [{ scene: 1, voiceText: \"George is ready!\", videoPrompt: \"Cinematic cooking shot\" }];\n  }\n}\n\nreturn scenes.map(scene => {\n  return {\n    json: {\n      bellaResponse: cleanText,\n      recipeName: georgeData.recipe_name || \"Special Dish\",\n      videoPrompt: scene.videoPrompt, \n      voiceText: scene.voiceText,\n      sceneNumber: scene.scene,\n      georgeJson: georgeData\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        800
+      ],
+      "id": "9cf20a47-4dc8-4698-b03a-ff2e18ba2024",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/tts",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.bellaResponse }}"
+            },
+            {
+              "name": "voice",
+              "value": "af_bella"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -272,
+        560
+      ],
+      "id": "178de565-c061-48e2-b34d-f4d99ba3487f",
+      "name": "Bella's Voice Generation",
+      "alwaysOutputData": true,
+      "executeOnce": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:8000/tts",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.voiceText }}"
+            },
+            {
+              "name": "voice",
+              "value": "bm_george"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 20000
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -144,
+        752
+      ],
+      "id": "ae26e6bd-bbee-402c-9f1f-cd8af334fc23",
+      "name": "George's Voice Takeover",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://chlevin135--video-processor-engine-generate-wan-video.modal.run",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "prompt",
+              "value": "={{ $json.videoPrompt }}"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 20000
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "file"
+            }
+          },
+          "timeout": 1200000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -16,
+        1008
+      ],
+      "id": "dbebcb0c-ea50-41c6-ba23-10c3ee9f6a4c",
+      "name": "Krea Video Generation",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {
+          "clashHandling": {
+            "values": {
+              "resolveClash": "addSuffix"
+            }
+          }
+        }
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        496,
+        960
+      ],
+      "id": "68dac6d8-0634-41eb-8290-22838f84397d",
+      "name": "Merge",
+      "retryOnFail": false,
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://chlevin135--video-processor-engine-stitch-final-video.modal.run",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url1",
+              "value": "={{ $items(\"Merge\")[0].binary.data_2.url }}"
+            },
+            {
+              "name": "url2",
+              "value": "={{ $items(\"Merge\")[1].binary.data_2.url }}"
+            },
+            {
+              "name": "url3",
+              "value": "={{ $items(\"Merge\")[2].binary.data_2.url }}"
+            },
+            {
+              "name": "audio1",
+              "value": "={{ $items(\"Merge\")[0].binary.data_1.url }}"
+            },
+            {
+              "name": "audio2",
+              "value": "={{ $items(\"Merge\")[1].binary.data_1.url }}"
+            },
+            {
+              "name": "audio3",
+              "value": "={{ $items(\"Merge\")[2].binary.data_1.url }}"
+            },
+            {
+              "name": "bg_music",
+              "value": "https://www.chosic.com/wp-content/uploads/2021/07/The-Wait-Extreme-Music.mp3"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        704,
+        960
+      ],
+      "id": "dd7327e3-9623-480e-8f70-e3f6820e0910",
+      "name": "Video Stitcher"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:5000/n8n-callback",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": []
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "sessionId",
+              "value": "={{ $node[\"Code in JavaScript\"].json.chatInput }}"
+            },
+            {
+              "name": "finalVideoUrl",
+              "value": "={{ $json.data_2.url }}"
+            },
+            {
+              "name": "georgeJson",
+              "value": "={{ $items(\"Merge\")[0].json.georgeJson }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        912,
+        960
+      ],
+      "id": "callback-node-final",
+      "name": "Callback to Python App"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Bella's Voice Generation",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "George's Voice Takeover",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Krea Video Generation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Krea Video Generation": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "George's Voice Takeover": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Video Stitcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Video Stitcher": {
+      "main": [
+        [
+          {
+            "node": "Callback to Python App",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "d4e465b8-f23f-42d5-bf33-763b69b50420",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "13bba58d1b86e18435e348ee5aeacd589135f9b243d1b759ec691d3e50951937"
+  },
+  "id": "BvIJDKfRhzsgPbJO",
+  "tags": []
+}

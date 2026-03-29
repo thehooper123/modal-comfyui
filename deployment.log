@@ -1,0 +1,1553 @@
+Building image im-jBnaZArS193U7EHB8pRdlc
+
+=> Step 0: FROM base
+
+=> Step 1: ENV HF_HUB_ENABLE_HF_TRANSFER=1
+
+=> Step 2: ENV HF_TOKEN=<redacted>
+Saving image...
+Image saved, took 1.70s
+
+Built image im-jBnaZArS193U7EHB8pRdlc in 3.38s
+
+
+Building image im-u3enNJvb3CJODojlTN4YKT
+
+=> Step 0: running function 'download_all'
+Warning: /root/workflow_api.json not found. API endpoint might not work without a workflow.
+⚠️  Could not download lightricks/ltx/ltx-2.3-22b-dev.safetensors: 404 Client Error. (Request ID: Root=1-69c911f2-7f7a21d90e92c95c7d51ed38;05cd13a3-8592-4edd-90d7-8b7a9d7c6f13)
+
+Repository Not Found for url: https://huggingface.co/lightricks/ltx/resolve/main/ltx-2.3-22b-dev.safetensors.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated. For more details, see https://huggingface.co/docs/huggingface_hub/authentication
+    This may be a private/gated repo. Models can be uploaded to the volume manually.
+⚠️  Could not download google/gemma-3-12b-it/model.safetensors: 404 Client Error. (Request ID: Root=1-69c911f2-6cbf60467f4ce54a1cea5a87;04f742c5-e364-496c-8cfa-86bade7a291f)
+
+Entry Not Found for url: https://huggingface.co/google/gemma-3-12b-it/resolve/main/model.safetensors.
+    This may be a private/gated repo. Models can be uploaded to the volume manually.
+Downloading ltx-2.3-22b-distilled-lora-384.safetensors from https://huggingface.co/lightricks/ltx/resolve/main/ltx-2.3-22b-distilled-lora-384.safetensors...
+⚠️  Could not download ltx-2.3-22b-distilled-lora-384.safetensors: Command '['aria2c', '--console-log-level=error', '--summary-interval=0', '-x', '16', '-s', '16', '-o', 'ltx-2.3-22b-distilled-lora-384.safetensors', '-d', '/cache', 'https://huggingface.co/lightricks/ltx/resolve/main/ltx-2.3-22b-distilled-lora-384.safetensors']' returned non-zero exit status 24.
+    Check the URL or upload manually to the volume.
+Saving image...
+Image saved, took 1.13s
+Finished image build for im-u3enNJvb3CJODojlTN4YKT
+Building image im-7S9qS3Os8rWj8c8FCuKVzB
+
+=> Step 0: FROM base
+
+=> Step 1: COPY . /
+Saving image...
+Image saved, took 803.42ms
+
+Built image im-7S9qS3Os8rWj8c8FCuKVzB in 2.28s
+
+
+Building image im-LyNEmw8j2PwFv8pB4gNbXM
+
+=> Step 0: FROM base
+
+=> Step 1: RUN comfy node install-deps --workflow=/root/workflow_api.json
+Execute from: /root/comfy/ComfyUI
+Command: ['/usr/local/bin/python', '-m', 'cm_cli', 'deps-in-workflow', 
+'--workflow', '/root/workflow_api.json', '--output', 
+'/root/.config/comfy-cli/tmp/9c4e62c9-3e32-4d80-9e69-356870037faa.json']
+FETCH DATA from: /usr/local/lib/python3.11/site-packages/comfyui_manager/custom-node-list.json [DONE]
+FETCH DATA from: /usr/local/lib/python3.11/site-packages/comfyui_manager/extension-node-map.json [DONE]
+Workflow dependencies are being saved into 
+/root/.config/comfy-cli/tmp/9c4e62c9-3e32-4d80-9e69-356870037faa.json.
+Execute from: /root/comfy/ComfyUI
+Command: ['/usr/local/bin/python', '-m', 'cm_cli', 'install-deps', 
+'/root/.config/comfy-cli/tmp/9c4e62c9-3e32-4d80-9e69-356870037faa.json']
+FETCH DATA from: /usr/local/lib/python3.11/site-packages/comfyui_manager/custom-node-list.json [DONE]
+FETCH DATA from: /usr/local/lib/python3.11/site-packages/comfyui_manager/custom-node-list.json [DONE]
+Current snapshot is saved as `2026-03-29_11-50-27_cli-autosave.json`
+Dependency installation and activation complete.
+Saving image...
+Image saved, took 1.51s
+
+Built image im-LyNEmw8j2PwFv8pB4gNbXM in 15.73s
+
+
+Building image im-T3ffuaAD2rKvuqAf6eDMNc
+
+=> Step 0: FROM base
+
+=> Step 1: RUN comfy node install ComfyUI-LTXVideo ComfyUI-VideoHelperSuite ComfyUI-GGUF
+Execute from: /root/comfy/ComfyUI
+Command: ['/usr/local/bin/python', '-m', 'cm_cli', 'install', 
+'ComfyUI-LTXVideo', 'ComfyUI-VideoHelperSuite', 'ComfyUI-GGUF']
+FETCH DATA from: /usr/local/lib/python3.11/site-packages/comfyui_manager/custom-node-list.json [DONE]
+FETCH DATA from: /usr/local/lib/python3.11/site-packages/comfyui_manager/custom-node-list.json [DONE]
+Download: git clone 'https://github.com/Lightricks/ComfyUI-LTXVideo'
+
+0it [00:00, ?it/s]
+  0%|          | 1.0/246.0 [00:00<01:18,  3.13it/s]
+  1%|          | 3.0/246.0 [00:00<00:25,  9.38it/s]
+  2%|▏         | 5.0/246.0 [00:00<00:15, 15.63it/s]
+  3%|▎         | 8.0/246.0 [00:00<00:09, 25.00it/s]
+  4%|▍         | 10.0/246.0 [00:00<00:07, 31.24it/s]
+  5%|▌         | 13.0/246.0 [00:00<00:05, 40.61it/s]
+  6%|▌         | 15.0/246.0 [00:00<00:04, 46.85it/s]
+  7%|▋         | 18.0/246.0 [00:00<00:04, 56.20it/s]
+  8%|▊         | 20.0/246.0 [00:00<00:03, 62.44it/s]
+  9%|▉         | 23.0/246.0 [00:00<00:03, 71.79it/s]
+ 10%|█         | 25.0/246.0 [00:00<00:02, 78.02it/s]
+ 11%|█▏        | 28.0/246.0 [00:00<00:02, 87.36it/s]
+ 12%|█▏        | 30.0/246.0 [00:00<00:02, 93.57it/s]
+ 13%|█▎        | 32.0/246.0 [00:00<00:02, 99.78it/s]
+ 14%|█▍        | 35.0/246.0 [00:00<00:01, 109.12it/s]
+ 15%|█▌        | 37.0/246.0 [00:00<00:01, 115.33it/s]
+ 16%|█▋        | 40.0/246.0 [00:00<00:01, 124.67it/s]
+ 17%|█▋        | 42.0/246.0 [00:00<00:01, 130.89it/s]
+ 18%|█▊        | 45.0/246.0 [00:00<00:01, 140.21it/s]
+ 19%|█▉        | 47.0/246.0 [00:00<00:01, 146.41it/s]
+ 20%|██        | 50.0/246.0 [00:00<00:01, 155.73it/s]
+ 21%|██        | 52.0/246.0 [00:00<00:01, 161.94it/s]
+ 22%|██▏       | 55.0/246.0 [00:00<00:01, 171.26it/s]
+ 23%|██▎       | 57.0/246.0 [00:00<00:01, 177.47it/s]
+ 24%|██▍       | 60.0/246.0 [00:00<00:00, 186.77it/s]
+ 25%|██▌       | 62.0/246.0 [00:00<00:00, 192.97it/s]
+ 26%|██▌       | 64.0/246.0 [00:00<00:00, 199.17it/s]
+ 27%|██▋       | 67.0/246.0 [00:00<00:00, 208.47it/s]
+ 28%|██▊       | 69.0/246.0 [00:00<00:00, 214.66it/s]
+ 29%|██▉       | 72.0/246.0 [00:00<00:00, 223.97it/s]
+ 30%|███       | 74.0/246.0 [00:00<00:00, 230.16it/s]
+ 31%|███▏      | 77.0/246.0 [00:00<00:00, 239.45it/s]
+ 32%|███▏      | 79.0/246.0 [00:00<00:00, 245.63it/s]
+ 33%|███▎      | 82.0/246.0 [00:00<00:00, 254.91it/s]
+ 34%|███▍      | 84.0/246.0 [00:00<00:00, 261.10it/s]
+ 35%|███▌      | 87.0/246.0 [00:00<00:00, 270.39it/s]
+ 36%|███▌      | 89.0/246.0 [00:00<00:00, 276.56it/s]
+ 37%|███▋      | 92.0/246.0 [00:00<00:00, 285.83it/s]
+ 38%|███▊      | 94.0/246.0 [00:00<00:00, 292.00it/s]
+ 39%|███▉      | 96.0/246.0 [00:00<00:00, 298.18it/s]
+ 40%|████      | 99.0/246.0 [00:00<00:00, 307.46it/s]
+ 41%|████      | 101.0/246.0 [00:00<00:00, 313.62it/s]
+ 42%|████▏     | 104.0/246.0 [00:00<00:00, 322.88it/s]
+ 43%|████▎     | 106.0/246.0 [00:00<00:00, 329.05it/s]
+ 44%|████▍     | 109.0/246.0 [00:00<00:00, 338.32it/s]
+ 45%|████▌     | 111.0/246.0 [00:00<00:00, 344.47it/s]
+ 46%|████▋     | 114.0/246.0 [00:00<00:00, 353.72it/s]
+ 47%|████▋     | 116.0/246.0 [00:00<00:00, 359.86it/s]
+ 48%|████▊     | 119.0/246.0 [00:00<00:00, 369.12it/s]
+ 49%|████▉     | 121.0/246.0 [00:00<00:00, 375.29it/s]
+ 50%|█████     | 123.0/246.0 [00:00<00:00, 381.45it/s]
+ 51%|█████     | 126.0/246.0 [00:00<00:00, 390.71it/s]
+ 52%|█████▏    | 128.0/246.0 [00:00<00:00, 396.79it/s]
+ 53%|█████▎    | 131.0/246.0 [00:00<00:00, 405.98it/s]
+ 54%|█████▍    | 133.0/246.0 [00:00<00:00, 412.12it/s]
+ 55%|█████▌    | 136.0/246.0 [00:00<00:00, 421.37it/s]
+ 56%|█████▌    | 138.0/246.0 [00:00<00:00, 427.51it/s]
+ 57%|█████▋    | 141.0/246.0 [00:00<00:00, 436.73it/s]
+ 58%|█████▊    | 143.0/246.0 [00:00<00:00, 442.84it/s]
+ 59%|█████▉    | 146.0/246.0 [00:00<00:00, 452.07it/s]
+ 60%|██████    | 148.0/246.0 [00:00<00:00, 458.20it/s]
+ 61%|██████▏   | 151.0/246.0 [00:00<00:00, 467.43it/s]
+ 62%|██████▏   | 153.0/246.0 [00:00<00:00, 473.56it/s]
+ 63%|██████▎   | 155.0/246.0 [00:00<00:00, 479.69it/s]
+ 64%|██████▍   | 158.0/246.0 [00:00<00:00, 488.90it/s]
+ 65%|██████▌   | 160.0/246.0 [00:00<00:00, 495.03it/s]
+ 66%|██████▋   | 163.0/246.0 [00:00<00:00, 504.23it/s]
+ 67%|██████▋   | 165.0/246.0 [00:00<00:00, 510.35it/s]
+ 68%|██████▊   | 168.0/246.0 [00:00<00:00, 519.54it/s]
+ 69%|██████▉   | 170.0/246.0 [00:00<00:00, 525.59it/s]
+ 70%|███████   | 173.0/246.0 [00:00<00:00, 534.77it/s]
+ 71%|███████   | 175.0/246.0 [00:00<00:00, 540.86it/s]
+ 72%|███████▏  | 178.0/246.0 [00:00<00:00, 550.02it/s]
+ 73%|███████▎  | 180.0/246.0 [00:00<00:00, 556.14it/s]
+ 74%|███████▍  | 183.0/246.0 [00:00<00:00, 565.32it/s]
+ 75%|███████▌  | 185.0/246.0 [00:00<00:00, 571.43it/s]
+ 76%|███████▌  | 187.0/246.0 [00:00<00:00, 577.52it/s]
+ 77%|███████▋  | 190.0/246.0 [00:00<00:00, 586.72it/s]
+ 78%|███████▊  | 192.0/246.0 [00:00<00:00, 592.82it/s]
+ 79%|███████▉  | 195.0/246.0 [00:00<00:00, 602.00it/s]
+ 80%|████████  | 197.0/246.0 [00:00<00:00, 608.10it/s]
+ 81%|████████▏ | 200.0/246.0 [00:00<00:00, 617.25it/s]
+ 82%|████████▏ | 202.0/246.0 [00:00<00:00, 623.33it/s]
+ 83%|████████▎ | 205.0/246.0 [00:00<00:00, 632.50it/s]
+ 84%|████████▍ | 207.0/246.0 [00:00<00:00, 638.60it/s]
+ 85%|████████▌ | 210.0/246.0 [00:00<00:00, 647.74it/s]
+ 86%|████████▌ | 212.0/246.0 [00:00<00:00, 653.84it/s]
+ 87%|████████▋ | 215.0/246.0 [00:00<00:00, 662.95it/s]
+ 88%|████████▊ | 217.0/246.0 [00:00<00:00, 669.00it/s]
+ 89%|████████▉ | 219.0/246.0 [00:00<00:00, 675.09it/s]
+ 90%|█████████ | 222.0/246.0 [00:00<00:00, 684.26it/s]
+ 91%|█████████ | 224.0/246.0 [00:00<00:00, 690.31it/s]
+ 92%|█████████▏| 227.0/246.0 [00:00<00:00, 699.48it/s]
+ 93%|█████████▎| 229.0/246.0 [00:00<00:00, 705.50it/s]
+ 94%|█████████▍| 232.0/246.0 [00:00<00:00, 714.62it/s]
+ 95%|█████████▌| 234.0/246.0 [00:00<00:00, 720.70it/s]
+ 96%|█████████▋| 237.0/246.0 [00:00<00:00, 729.84it/s]
+ 97%|█████████▋| 239.0/246.0 [00:00<00:00, 735.87it/s]
+ 98%|█████████▊| 242.0/246.0 [00:00<00:00, 744.99it/s]
+ 99%|█████████▉| 244.0/246.0 [00:00<00:00, 751.01it/s]
+100%|██████████| 246.0/246.0 [00:00<00:00, 757.03it/s]
+100%|██████████| 246.0/246.0 [00:00<00:00, 756.88it/s]
+  1%|          | 1.0/118.0 [00:00<00:38,  3.07it/s]   
+  2%|▏         | 2.0/118.0 [00:00<00:18,  6.15it/s]
+  3%|▎         | 3.0/118.0 [00:00<00:12,  9.22it/s]
+  3%|▎         | 4.0/118.0 [00:00<00:09, 12.29it/s]
+  4%|▍         | 5.0/118.0 [00:00<00:07, 15.35it/s]
+  5%|▌         | 6.0/118.0 [00:00<00:06, 18.42it/s]
+  7%|▋         | 8.0/118.0 [00:00<00:04, 24.55it/s]
+  8%|▊         | 9.0/118.0 [00:00<00:03, 27.62it/s]
+  8%|▊         | 10.0/118.0 [00:00<00:03, 30.68it/s]
+  9%|▉         | 11.0/118.0 [00:00<00:03, 33.74it/s]
+ 10%|█         | 12.0/118.0 [00:00<00:02, 36.81it/s]
+ 11%|█         | 13.0/118.0 [00:00<00:02, 39.87it/s]
+ 13%|█▎        | 15.0/118.0 [00:00<00:02, 45.99it/s]
+ 14%|█▎        | 16.0/118.0 [00:00<00:02, 49.05it/s]
+ 14%|█▍        | 17.0/118.0 [00:00<00:01, 52.11it/s]
+ 15%|█▌        | 18.0/118.0 [00:00<00:01, 55.17it/s]
+ 16%|█▌        | 19.0/118.0 [00:00<00:01, 57.77it/s]
+ 18%|█▊        | 21.0/118.0 [00:00<00:01, 63.53it/s]
+ 19%|█▊        | 22.0/118.0 [00:00<00:01, 66.52it/s]
+ 19%|█▉        | 23.0/118.0 [00:00<00:01, 69.48it/s]
+ 20%|██        | 24.0/118.0 [00:00<00:01, 72.31it/s]
+ 21%|██        | 25.0/118.0 [00:00<00:01, 74.98it/s]
+ 22%|██▏       | 26.0/118.0 [00:00<00:01, 77.27it/s]
+ 24%|██▎       | 28.0/118.0 [00:00<00:01, 82.89it/s]
+ 25%|██▍       | 29.0/118.0 [00:00<00:01, 85.58it/s]
+ 25%|██▌       | 30.0/118.0 [00:00<00:00, 88.50it/s]
+ 26%|██▋       | 31.0/118.0 [00:00<00:00, 91.40it/s]
+ 27%|██▋       | 32.0/118.0 [00:00<00:00, 93.85it/s]
+ 29%|██▉       | 34.0/118.0 [00:00<00:00, 99.68it/s]
+ 30%|██▉       | 35.0/118.0 [00:00<00:00, 102.38it/s]
+ 31%|███       | 36.0/118.0 [00:00<00:00, 105.23it/s]
+ 31%|███▏      | 37.0/118.0 [00:00<00:00, 108.11it/s]
+ 32%|███▏      | 38.0/118.0 [00:00<00:00, 110.76it/s]
+ 33%|███▎      | 39.0/118.0 [00:00<00:00, 113.41it/s]
+ 35%|███▍      | 41.0/118.0 [00:00<00:00, 119.00it/s]
+ 36%|███▌      | 42.0/118.0 [00:00<00:00, 121.62it/s]
+ 36%|███▋      | 43.0/118.0 [00:00<00:00, 124.46it/s]
+ 37%|███▋      | 44.0/118.0 [00:00<00:00, 127.21it/s]
+ 38%|███▊      | 45.0/118.0 [00:00<00:00, 129.73it/s]
+ 40%|███▉      | 47.0/118.0 [00:00<00:00, 135.38it/s]
+ 41%|████      | 48.0/118.0 [00:00<00:00, 138.21it/s]
+ 42%|████▏     | 49.0/118.0 [00:00<00:00, 140.96it/s]
+ 42%|████▏     | 50.0/118.0 [00:00<00:00, 143.80it/s]
+ 43%|████▎     | 51.0/118.0 [00:00<00:00, 146.64it/s]
+ 44%|████▍     | 52.0/118.0 [00:00<00:00, 149.43it/s]
+ 46%|████▌     | 54.0/118.0 [00:00<00:00, 155.03it/s]
+ 47%|████▋     | 55.0/118.0 [00:00<00:00, 157.86it/s]
+ 47%|████▋     | 56.0/118.0 [00:00<00:00, 160.71it/s]
+ 48%|████▊     | 57.0/118.0 [00:00<00:00, 163.56it/s]
+ 49%|████▉     | 58.0/118.0 [00:00<00:00, 166.39it/s]
+ 50%|█████     | 59.0/118.0 [00:00<00:00, 169.23it/s]
+ 52%|█████▏    | 61.0/118.0 [00:00<00:00, 174.94it/s]
+ 53%|█████▎    | 62.0/118.0 [00:00<00:00, 177.78it/s]
+ 53%|█████▎    | 63.0/118.0 [00:00<00:00, 180.62it/s]
+ 54%|█████▍    | 64.0/118.0 [00:00<00:00, 183.47it/s]
+ 55%|█████▌    | 65.0/118.0 [00:00<00:00, 186.31it/s]
+ 57%|█████▋    | 67.0/118.0 [00:00<00:00, 192.02it/s]
+ 58%|█████▊    | 68.0/118.0 [00:00<00:00, 194.86it/s]
+ 58%|█████▊    | 69.0/118.0 [00:00<00:00, 197.70it/s]
+ 59%|█████▉    | 70.0/118.0 [00:00<00:00, 200.54it/s]
+ 60%|██████    | 71.0/118.0 [00:00<00:00, 203.38it/s]
+ 61%|██████    | 72.0/118.0 [00:00<00:00, 206.18it/s]
+ 63%|██████▎   | 74.0/118.0 [00:00<00:00, 211.87it/s]
+ 64%|██████▎   | 75.0/118.0 [00:00<00:00, 214.68it/s]
+ 64%|██████▍   | 76.0/118.0 [00:00<00:00, 217.51it/s]
+ 65%|██████▌   | 77.0/118.0 [00:00<00:00, 220.33it/s]
+ 66%|██████▌   | 78.0/118.0 [00:00<00:00, 223.14it/s]
+ 68%|██████▊   | 80.0/118.0 [00:00<00:00, 228.83it/s]
+ 69%|██████▊   | 81.0/118.0 [00:00<00:00, 231.67it/s]
+ 69%|██████▉   | 82.0/118.0 [00:00<00:00, 234.50it/s]
+ 70%|███████   | 83.0/118.0 [00:00<00:00, 237.33it/s]
+ 71%|███████   | 84.0/118.0 [00:00<00:00, 240.17it/s]
+ 72%|███████▏  | 85.0/118.0 [00:00<00:00, 243.00it/s]
+ 74%|███████▎  | 87.0/118.0 [00:00<00:00, 248.66it/s]
+ 75%|███████▍  | 88.0/118.0 [00:00<00:00, 251.49it/s]
+ 75%|███████▌  | 89.0/118.0 [00:00<00:00, 254.32it/s]
+ 76%|███████▋  | 90.0/118.0 [00:00<00:00, 257.15it/s]
+ 77%|███████▋  | 91.0/118.0 [00:00<00:00, 259.98it/s]
+ 79%|███████▉  | 93.0/118.0 [00:00<00:00, 265.66it/s]
+ 80%|███████▉  | 94.0/118.0 [00:00<00:00, 268.49it/s]
+ 81%|████████  | 95.0/118.0 [00:00<00:00, 271.32it/s]
+ 81%|████████▏ | 96.0/118.0 [00:00<00:00, 274.14it/s]
+ 82%|████████▏ | 97.0/118.0 [00:00<00:00, 276.96it/s]
+ 83%|████████▎ | 98.0/118.0 [00:00<00:00, 279.76it/s]
+ 85%|████████▍ | 100.0/118.0 [00:00<00:00, 285.44it/s]
+ 86%|████████▌ | 101.0/118.0 [00:00<00:00, 288.26it/s]
+ 86%|████████▋ | 102.0/118.0 [00:00<00:00, 291.07it/s]
+ 87%|████████▋ | 103.0/118.0 [00:00<00:00, 293.89it/s]
+ 88%|████████▊ | 104.0/118.0 [00:00<00:00, 296.71it/s]
+ 90%|████████▉ | 106.0/118.0 [00:00<00:00, 302.37it/s]
+ 91%|█████████ | 107.0/118.0 [00:00<00:00, 305.17it/s]
+ 92%|█████████▏| 108.0/118.0 [00:00<00:00, 307.99it/s]
+ 92%|█████████▏| 109.0/118.0 [00:00<00:00, 310.73it/s]
+ 93%|█████████▎| 110.0/118.0 [00:00<00:00, 313.51it/s]
+ 94%|█████████▍| 111.0/118.0 [00:00<00:00, 316.31it/s]
+ 96%|█████████▌| 113.0/118.0 [00:00<00:00, 321.95it/s]
+ 97%|█████████▋| 114.0/118.0 [00:00<00:00, 324.75it/s]
+ 97%|█████████▋| 115.0/118.0 [00:00<00:00, 327.55it/s]
+ 98%|█████████▊| 116.0/118.0 [00:00<00:00, 330.32it/s]
+ 99%|█████████▉| 117.0/118.0 [00:00<00:00, 333.11it/s]
+100%|██████████| 118.0/118.0 [00:00<00:00, 335.91it/s]
+100%|██████████| 118.0/118.0 [00:00<00:00, 335.87it/s]
+  0%|          | 1.0/523.0 [00:00<03:04,  2.83it/s]   
+  1%|          | 6.0/523.0 [00:00<00:30, 16.96it/s]
+  2%|▏         | 11.0/523.0 [00:00<00:16, 31.02it/s]
+  3%|▎         | 16.0/523.0 [00:00<00:11, 45.07it/s]
+  4%|▍         | 21.0/523.0 [00:00<00:08, 59.07it/s]
+  5%|▌         | 27.0/523.0 [00:00<00:06, 75.87it/s]
+  6%|▌         | 32.0/523.0 [00:00<00:05, 89.19it/s]
+  7%|▋         | 37.0/523.0 [00:00<00:04, 102.99it/s]
+  8%|▊         | 42.0/523.0 [00:00<00:07, 60.98it/s] 
+  9%|▉         | 48.0/523.0 [00:00<00:06, 69.64it/s]
+ 10%|█         | 53.0/523.0 [00:00<00:06, 76.83it/s]
+ 11%|█         | 58.0/523.0 [00:00<00:05, 84.05it/s]
+ 12%|█▏        | 63.0/523.0 [00:00<00:05, 91.28it/s]
+ 13%|█▎        | 68.0/523.0 [00:00<00:04, 98.51it/s]
+ 14%|█▍        | 74.0/523.0 [00:00<00:04, 107.15it/s]
+ 15%|█▌        | 79.0/523.0 [00:00<00:03, 114.36it/s]
+ 16%|█▌        | 84.0/523.0 [00:00<00:03, 121.57it/s]
+ 17%|█▋        | 89.0/523.0 [00:00<00:03, 128.78it/s]
+ 18%|█▊        | 95.0/523.0 [00:00<00:03, 137.45it/s]
+ 19%|█▉        | 100.0/523.0 [00:00<00:02, 144.64it/s]
+ 20%|██        | 105.0/523.0 [00:00<00:02, 151.80it/s]
+ 21%|██        | 110.0/523.0 [00:00<00:02, 155.05it/s]
+ 22%|██▏       | 116.0/523.0 [00:00<00:02, 158.91it/s]
+ 23%|██▎       | 121.0/523.0 [00:00<00:02, 165.71it/s]
+ 24%|██▍       | 126.0/523.0 [00:00<00:02, 172.53it/s]
+ 25%|██▌       | 131.0/523.0 [00:00<00:02, 179.35it/s]
+ 26%|██▌       | 136.0/523.0 [00:00<00:02, 186.18it/s]
+ 27%|██▋       | 142.0/523.0 [00:00<00:01, 194.35it/s]
+ 28%|██▊       | 147.0/523.0 [00:00<00:01, 201.14it/s]
+ 29%|██▉       | 152.0/523.0 [00:00<00:01, 207.92it/s]
+ 30%|███       | 157.0/523.0 [00:00<00:01, 212.55it/s]
+ 31%|███       | 163.0/523.0 [00:00<00:01, 220.61it/s]
+ 32%|███▏      | 168.0/523.0 [00:00<00:01, 227.34it/s]
+ 33%|███▎      | 173.0/523.0 [00:00<00:01, 234.06it/s]
+ 34%|███▍      | 178.0/523.0 [00:00<00:01, 240.79it/s]
+ 35%|███▌      | 184.0/523.0 [00:00<00:01, 248.87it/s]
+ 36%|███▌      | 189.0/523.0 [00:00<00:01, 255.60it/s]
+ 37%|███▋      | 194.0/523.0 [00:00<00:01, 262.34it/s]
+ 38%|███▊      | 199.0/523.0 [00:00<00:01, 269.05it/s]
+ 39%|███▉      | 204.0/523.0 [00:00<00:01, 257.09it/s]
+ 40%|████      | 210.0/523.0 [00:00<00:01, 264.54it/s]
+ 41%|████      | 215.0/523.0 [00:00<00:01, 270.78it/s]
+ 42%|████▏     | 220.0/523.0 [00:00<00:01, 277.00it/s]
+ 43%|████▎     | 225.0/523.0 [00:00<00:01, 282.60it/s]
+ 44%|████▍     | 231.0/523.0 [00:00<00:01, 290.08it/s]
+ 45%|████▌     | 236.0/523.0 [00:00<00:00, 296.30it/s]
+ 46%|████▌     | 241.0/523.0 [00:00<00:00, 302.24it/s]
+ 47%|████▋     | 246.0/523.0 [00:00<00:00, 308.47it/s]
+ 48%|████▊     | 252.0/523.0 [00:00<00:00, 315.73it/s]
+ 49%|████▉     | 257.0/523.0 [00:00<00:00, 321.92it/s]
+ 50%|█████     | 262.0/523.0 [00:00<00:00, 328.06it/s]
+ 51%|█████     | 267.0/523.0 [00:00<00:00, 334.22it/s]
+ 52%|█████▏    | 272.0/523.0 [00:00<00:00, 340.27it/s]
+ 53%|█████▎    | 278.0/523.0 [00:00<00:00, 347.72it/s]
+ 54%|█████▍    | 283.0/523.0 [00:00<00:00, 353.88it/s]
+ 55%|█████▌    | 288.0/523.0 [00:00<00:00, 360.03it/s]
+ 56%|█████▌    | 293.0/523.0 [00:00<00:00, 366.20it/s]
+ 57%|█████▋    | 299.0/523.0 [00:00<00:00, 373.67it/s]
+ 58%|█████▊    | 304.0/523.0 [00:00<00:00, 379.86it/s]
+ 59%|█████▉    | 309.0/523.0 [00:00<00:00, 386.06it/s]
+ 60%|██████    | 314.0/523.0 [00:00<00:00, 392.26it/s]
+ 61%|██████    | 320.0/523.0 [00:00<00:00, 399.72it/s]
+ 62%|██████▏   | 325.0/523.0 [00:00<00:00, 405.94it/s]
+ 63%|██████▎   | 330.0/523.0 [00:00<00:00, 412.15it/s]
+ 64%|██████▍   | 335.0/523.0 [00:00<00:00, 418.36it/s]
+ 65%|██████▌   | 340.0/523.0 [00:00<00:00, 424.58it/s]
+ 66%|██████▌   | 346.0/523.0 [00:00<00:00, 432.04it/s]
+ 67%|██████▋   | 351.0/523.0 [00:00<00:00, 438.26it/s]
+ 68%|██████▊   | 356.0/523.0 [00:00<00:00, 444.20it/s]
+ 69%|██████▉   | 361.0/523.0 [00:00<00:00, 450.10it/s]
+ 70%|███████   | 367.0/523.0 [00:00<00:00, 457.06it/s]
+ 71%|███████   | 372.0/523.0 [00:00<00:00, 463.23it/s]
+ 72%|███████▏  | 377.0/523.0 [00:00<00:00, 469.31it/s]
+ 73%|███████▎  | 382.0/523.0 [00:00<00:00, 475.28it/s]
+ 74%|███████▍  | 388.0/523.0 [00:00<00:00, 482.60it/s]
+ 75%|███████▌  | 393.0/523.0 [00:00<00:00, 488.62it/s]
+ 76%|███████▌  | 398.0/523.0 [00:00<00:00, 494.47it/s]
+ 77%|███████▋  | 403.0/523.0 [00:00<00:00, 500.47it/s]
+ 78%|███████▊  | 408.0/523.0 [00:00<00:00, 506.48it/s]
+ 79%|███████▉  | 414.0/523.0 [00:00<00:00, 513.75it/s]
+ 80%|████████  | 419.0/523.0 [00:00<00:00, 519.82it/s]
+ 81%|████████  | 424.0/523.0 [00:00<00:00, 525.78it/s]
+ 82%|████████▏ | 429.0/523.0 [00:00<00:00, 531.71it/s]
+ 83%|████████▎ | 435.0/523.0 [00:00<00:00, 539.07it/s]
+ 84%|████████▍ | 440.0/523.0 [00:00<00:00, 545.10it/s]
+ 85%|████████▌ | 445.0/523.0 [00:00<00:00, 551.12it/s]
+ 86%|████████▌ | 450.0/523.0 [00:00<00:00, 557.24it/s]
+ 87%|████████▋ | 456.0/523.0 [00:00<00:00, 564.61it/s]
+ 88%|████████▊ | 461.0/523.0 [00:00<00:00, 570.76it/s]
+ 89%|████████▉ | 466.0/523.0 [00:00<00:00, 576.92it/s]
+ 90%|█████████ | 471.0/523.0 [00:00<00:00, 583.00it/s]
+ 91%|█████████ | 476.0/523.0 [00:00<00:00, 588.91it/s]
+ 92%|█████████▏| 482.0/523.0 [00:00<00:00, 596.23it/s]
+ 93%|█████████▎| 487.0/523.0 [00:00<00:00, 602.31it/s]
+ 94%|█████████▍| 492.0/523.0 [00:00<00:00, 608.42it/s]
+ 95%|█████████▌| 497.0/523.0 [00:00<00:00, 613.98it/s]
+ 96%|█████████▌| 503.0/523.0 [00:00<00:00, 621.22it/s]
+ 97%|█████████▋| 508.0/523.0 [00:00<00:00, 626.96it/s]
+ 98%|█████████▊| 513.0/523.0 [00:00<00:00, 632.80it/s]
+ 99%|█████████▉| 518.0/523.0 [00:00<00:00, 638.68it/s]
+100%|██████████| 523.0/523.0 [00:00<00:00, 644.78it/s]
+100%|██████████| 523.0/523.0 [00:00<00:00, 644.72it/s]
+  0%|          | 0.0/247.0 [00:00<?, ?it/s]           
+  1%|          | 3.0/247.0 [00:00<01:06,  3.67it/s]
+  2%|▏         | 5.0/247.0 [00:00<00:39,  6.12it/s]
+  3%|▎         | 8.0/247.0 [00:00<00:24,  9.79it/s]
+  4%|▍         | 10.0/247.0 [00:00<00:19, 12.23it/s]
+  5%|▌         | 13.0/247.0 [00:00<00:14, 15.90it/s]
+  6%|▌         | 15.0/247.0 [00:00<00:12, 18.33it/s]
+  7%|▋         | 18.0/247.0 [00:00<00:10, 21.99it/s]
+  9%|▊         | 21.0/247.0 [00:00<00:08, 25.63it/s]
+  9%|▉         | 23.0/247.0 [00:00<00:07, 28.07it/s]
+ 10%|█         | 25.0/247.0 [00:00<00:07, 30.48it/s]
+ 11%|█▏        | 28.0/247.0 [00:00<00:06, 34.11it/s]
+ 12%|█▏        | 30.0/247.0 [00:00<00:05, 36.48it/s]
+ 15%|█▍        | 36.0/247.0 [00:00<00:04, 43.61it/s]
+ 15%|█▌        | 38.0/247.0 [00:00<00:04, 45.89it/s]
+ 17%|█▋        | 43.0/247.0 [00:00<00:03, 51.92it/s]
+ 18%|█▊        | 45.0/247.0 [00:00<00:03, 54.23it/s]
+ 20%|█▉        | 49.0/247.0 [00:00<00:03, 59.02it/s]
+ 20%|██        | 50.0/247.0 [00:00<00:03, 60.13it/s]
+ 21%|██        | 52.0/247.0 [00:00<00:03, 62.52it/s]
+ 23%|██▎       | 56.0/247.0 [00:00<00:02, 67.32it/s]
+ 23%|██▎       | 57.0/247.0 [00:00<00:02, 68.48it/s]
+ 28%|██▊       | 69.0/247.0 [00:00<00:02, 82.88it/s]
+ 28%|██▊       | 70.0/247.0 [00:00<00:02, 84.07it/s]
+ 29%|██▉       | 72.0/247.0 [00:00<00:02, 86.45it/s]
+ 30%|███       | 75.0/247.0 [00:00<00:01, 90.03it/s]
+ 31%|███       | 77.0/247.0 [00:00<00:01, 92.41it/s]
+ 32%|███▏      | 80.0/247.0 [00:00<00:01, 95.99it/s]
+ 33%|███▎      | 82.0/247.0 [00:00<00:01, 98.38it/s]
+ 34%|███▍      | 84.0/247.0 [00:00<00:01, 100.76it/s]
+ 35%|███▌      | 87.0/247.0 [00:00<00:01, 104.34it/s]
+ 36%|███▌      | 89.0/247.0 [00:00<00:01, 106.71it/s]
+ 40%|███▉      | 98.0/247.0 [00:00<00:01, 117.47it/s]
+ 43%|████▎     | 105.0/247.0 [00:00<00:01, 125.83it/s]
+ 44%|████▍     | 109.0/247.0 [00:00<00:01, 130.56it/s]
+ 45%|████▌     | 112.0/247.0 [00:00<00:01, 134.12it/s]
+ 46%|████▌     | 114.0/247.0 [00:00<00:00, 136.46it/s]
+ 49%|████▊     | 120.0/247.0 [00:00<00:00, 143.60it/s]
+ 50%|████▉     | 123.0/247.0 [00:00<00:00, 147.17it/s]
+ 50%|█████     | 124.0/247.0 [00:00<00:00, 148.35it/s]
+ 51%|█████     | 126.0/247.0 [00:00<00:00, 150.69it/s]
+ 53%|█████▎    | 131.0/247.0 [00:00<00:00, 156.65it/s]
+ 54%|█████▍    | 134.0/247.0 [00:00<00:00, 160.22it/s]
+ 55%|█████▌    | 136.0/247.0 [00:00<00:00, 162.60it/s]
+ 57%|█████▋    | 140.0/247.0 [00:00<00:00, 167.37it/s]
+ 57%|█████▋    | 141.0/247.0 [00:00<00:00, 168.33it/s]
+ 59%|█████▊    | 145.0/247.0 [00:00<00:00, 173.05it/s]
+ 59%|█████▉    | 146.0/247.0 [00:00<00:00, 174.17it/s]
+ 61%|██████    | 151.0/247.0 [00:00<00:00, 180.07it/s]
+ 63%|██████▎   | 155.0/247.0 [00:00<00:00, 184.79it/s]
+ 64%|██████▍   | 158.0/247.0 [00:00<00:00, 188.32it/s]
+ 65%|██████▍   | 160.0/247.0 [00:00<00:00, 190.67it/s]
+ 65%|██████▌   | 161.0/247.0 [00:00<00:00, 191.70it/s]
+ 67%|██████▋   | 165.0/247.0 [00:00<00:00, 196.44it/s]
+ 67%|██████▋   | 166.0/247.0 [00:00<00:00, 197.61it/s]
+ 68%|██████▊   | 168.0/247.0 [00:00<00:00, 199.97it/s]
+ 69%|██████▉   | 171.0/247.0 [00:00<00:00, 203.46it/s]
+ 71%|███████▏  | 176.0/247.0 [00:00<00:00, 209.29it/s]
+ 73%|███████▎  | 181.0/247.0 [00:00<00:00, 215.11it/s]
+ 74%|███████▍  | 183.0/247.0 [00:00<00:00, 217.45it/s]
+ 75%|███████▌  | 186.0/247.0 [00:00<00:00, 220.99it/s]
+ 77%|███████▋  | 189.0/247.0 [00:00<00:00, 224.48it/s]
+ 78%|███████▊  | 193.0/247.0 [00:00<00:00, 229.03it/s]
+ 80%|████████  | 198.0/247.0 [00:00<00:00, 234.86it/s]
+ 81%|████████▏ | 201.0/247.0 [00:00<00:00, 238.36it/s]
+ 82%|████████▏ | 203.0/247.0 [00:00<00:00, 240.61it/s]
+ 84%|████████▍ | 208.0/247.0 [00:00<00:00, 246.50it/s]
+ 85%|████████▌ | 210.0/247.0 [00:00<00:00, 248.71it/s]
+ 87%|████████▋ | 215.0/247.0 [00:00<00:00, 254.56it/s]
+ 88%|████████▊ | 218.0/247.0 [00:00<00:00, 258.09it/s]
+ 89%|████████▉ | 220.0/247.0 [00:00<00:00, 260.38it/s]
+ 90%|█████████ | 223.0/247.0 [00:00<00:00, 263.88it/s]
+ 91%|█████████ | 225.0/247.0 [00:00<00:00, 266.14it/s]
+ 93%|█████████▎| 229.0/247.0 [00:00<00:00, 270.74it/s]
+ 94%|█████████▍| 233.0/247.0 [00:00<00:00, 275.40it/s]
+ 95%|█████████▌| 235.0/247.0 [00:00<00:00, 277.72it/s]
+ 96%|█████████▋| 238.0/247.0 [00:00<00:00, 280.61it/s]
+ 97%|█████████▋| 240.0/247.0 [00:00<00:00, 282.75it/s]
+ 98%|█████████▊| 243.0/247.0 [00:00<00:00, 286.03it/s]
+ 99%|█████████▉| 245.0/247.0 [00:00<00:00, 247.17it/s]
+100%|██████████| 247.0/247.0 [00:00<00:00, 249.08it/s]
+100%|██████████| 247.0/247.0 [00:00<00:00, 249.03it/s]
+100%|██████████| 247.0/247.0 [00:02<00:00, 103.57it/s]
+Install: pip packages
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'diffusers']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting diffusers
+  Downloading http://pypi-mirror.modal.local:5555/simple/diffusers/diffusers-0.37.1-py3-none-any.whl.metadata (20 kB)
+Collecting importlib-metadata (from diffusers)
+  Downloading http://pypi-mirror.modal.local:5555/simple/importlib-metadata/importlib_metadata-9.0.0-py3-none-any.whl.metadata (4.5 kB)
+Requirement already satisfied: filelock in /usr/local/lib/python3.11/site-packages (from diffusers) (3.25.2)
+Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.11/site-packages (from diffusers) (0.28.1)
+Requirement already satisfied: huggingface-hub<2.0,>=0.34.0 in /usr/local/lib/python3.11/site-packages (from diffusers) (1.8.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.11/site-packages (from diffusers) (2.4.3)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.11/site-packages (from diffusers) (2026.3.32)
+Requirement already satisfied: requests in /usr/local/lib/python3.11/site-packages (from diffusers) (2.33.0)
+Requirement already satisfied: safetensors>=0.3.1 in /usr/local/lib/python3.11/site-packages (from diffusers) (0.7.0)
+Requirement already satisfied: Pillow in /usr/local/lib/python3.11/site-packages (from diffusers) (12.1.1)
+Requirement already satisfied: anyio in /usr/local/lib/python3.11/site-packages (from httpx<1.0.0->diffusers) (4.13.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.11/site-packages (from httpx<1.0.0->diffusers) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.11/site-packages (from httpx<1.0.0->diffusers) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.11/site-packages (from httpx<1.0.0->diffusers) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.11/site-packages (from httpcore==1.*->httpx<1.0.0->diffusers) (0.16.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (2026.3.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.2 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (1.4.2)
+Requirement already satisfied: packaging>=20.9 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (26.0)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (6.0.3)
+Requirement already satisfied: tqdm>=4.42.1 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (4.67.3)
+Requirement already satisfied: typer in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (0.24.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=0.34.0->diffusers) (4.15.0)
+Collecting zipp>=3.20 (from importlib-metadata->diffusers)
+  Downloading http://pypi-mirror.modal.local:5555/simple/zipp/zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.11/site-packages (from requests->diffusers) (3.4.6)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.11/site-packages (from requests->diffusers) (2.6.3)
+Requirement already satisfied: click>=8.2.1 in /usr/local/lib/python3.11/site-packages (from typer->huggingface-hub<2.0,>=0.34.0->diffusers) (8.3.1)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.11/site-packages (from typer->huggingface-hub<2.0,>=0.34.0->diffusers) (1.5.4)
+Requirement already satisfied: rich>=12.3.0 in /usr/local/lib/python3.11/site-packages (from typer->huggingface-hub<2.0,>=0.34.0->diffusers) (14.3.3)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.11/site-packages (from typer->huggingface-hub<2.0,>=0.34.0->diffusers) (0.0.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.11/site-packages (from rich>=12.3.0->typer->huggingface-hub<2.0,>=0.34.0->diffusers) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.11/site-packages (from rich>=12.3.0->typer->huggingface-hub<2.0,>=0.34.0->diffusers) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->huggingface-hub<2.0,>=0.34.0->diffusers) (0.1.2)
+Downloading http://pypi-mirror.modal.local:5555/simple/diffusers/diffusers-0.37.1-py3-none-any.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 304.0 MB/s  0:00:00
+Downloading http://pypi-mirror.modal.local:5555/simple/importlib-metadata/importlib_metadata-9.0.0-py3-none-any.whl (27 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/zipp/zipp-3.23.0-py3-none-any.whl (10 kB)
+Installing collected packages: zipp, importlib-metadata, diffusers
+
+Successfully installed diffusers-0.37.1 importlib-metadata-9.0.0 zipp-3.23.0
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'einops']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Requirement already satisfied: einops in /usr/local/lib/python3.11/site-packages (0.8.2)
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'huggingface_hub>=0.25.2']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Requirement already satisfied: huggingface_hub>=0.25.2 in /usr/local/lib/python3.11/site-packages (1.8.0)
+Requirement already satisfied: filelock>=3.10.0 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (3.25.2)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (2026.3.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.2 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (1.4.2)
+Requirement already satisfied: httpx<1,>=0.23.0 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (0.28.1)
+Requirement already satisfied: packaging>=20.9 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (26.0)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (6.0.3)
+Requirement already satisfied: tqdm>=4.42.1 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (4.67.3)
+Requirement already satisfied: typer in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (0.24.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.11/site-packages (from huggingface_hub>=0.25.2) (4.15.0)
+Requirement already satisfied: anyio in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.25.2) (4.13.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.25.2) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.25.2) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface_hub>=0.25.2) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.11/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub>=0.25.2) (0.16.0)
+Requirement already satisfied: click>=8.2.1 in /usr/local/lib/python3.11/site-packages (from typer->huggingface_hub>=0.25.2) (8.3.1)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.11/site-packages (from typer->huggingface_hub>=0.25.2) (1.5.4)
+Requirement already satisfied: rich>=12.3.0 in /usr/local/lib/python3.11/site-packages (from typer->huggingface_hub>=0.25.2) (14.3.3)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.11/site-packages (from typer->huggingface_hub>=0.25.2) (0.0.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.11/site-packages (from rich>=12.3.0->typer->huggingface_hub>=0.25.2) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.11/site-packages (from rich>=12.3.0->typer->huggingface_hub>=0.25.2) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->huggingface_hub>=0.25.2) (0.1.2)
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'ninja~=1.11.1.4']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting ninja~=1.11.1.4
+  Downloading http://pypi-mirror.modal.local:5555/simple/ninja/ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.0 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/ninja/ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (422 kB)
+Installing collected packages: ninja
+Successfully installed ninja-1.11.1.4
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'transformers>=4.50.0']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Requirement already satisfied: transformers>=4.50.0 in /usr/local/lib/python3.11/site-packages (from transformers[timm]>=4.50.0) (5.4.0)
+Requirement already satisfied: huggingface-hub<2.0,>=1.5.0 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (1.8.0)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (2.4.3)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (26.0)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (6.0.3)
+Requirement already satisfied: regex>=2025.10.22 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (2026.3.32)
+Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (0.22.2)
+Requirement already satisfied: typer in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (0.24.1)
+Requirement already satisfied: safetensors>=0.4.3 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (0.7.0)
+Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.11/site-packages (from transformers>=4.50.0->transformers[timm]>=4.50.0) (4.67.3)
+Requirement already satisfied: filelock>=3.10.0 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (3.25.2)
+Requirement already satisfied: fsspec>=2023.5.0 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (2026.3.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.2 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (1.4.2)
+Requirement already satisfied: httpx<1,>=0.23.0 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (0.28.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /usr/local/lib/python3.11/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (4.15.0)
+Requirement already satisfied: anyio in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (4.13.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.11/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.11/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers>=4.50.0->transformers[timm]>=4.50.0) (0.16.0)
+Collecting timm>=1.0.23 (from transformers[timm]>=4.50.0)
+  Downloading http://pypi-mirror.modal.local:5555/simple/timm/timm-1.0.26-py3-none-any.whl.metadata (39 kB)
+Requirement already satisfied: torch in /usr/local/lib/python3.11/site-packages (from timm>=1.0.23->transformers[timm]>=4.50.0) (2.11.0+cu126)
+Requirement already satisfied: torchvision in /usr/local/lib/python3.11/site-packages (from timm>=1.0.23->transformers[timm]>=4.50.0) (0.26.0+cu126)
+Requirement already satisfied: setuptools<82 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (65.5.1)
+Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (3.6.1)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (3.1.6)
+Requirement already satisfied: cuda-toolkit==12.6.3 in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.3)
+Requirement already satisfied: cuda-bindings<13,>=12.9.4 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.9.4)
+Requirement already satisfied: nvidia-cudnn-cu12==9.10.2.21 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (9.10.2.21)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.7.1 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (0.7.1)
+Requirement already satisfied: nvidia-nccl-cu12==2.28.9 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu12==3.4.5 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (3.4.5)
+Requirement already satisfied: triton==3.6.0 in /usr/local/lib/python3.11/site-packages (from torch->timm>=1.0.23->transformers[timm]>=4.50.0) (3.6.0)
+Requirement already satisfied: nvidia-cublas-cu12==12.6.4.1.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.4.1)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.6.77.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.77)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.0.4.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (11.3.0.4)
+Requirement already satisfied: nvidia-cufile-cu12==1.11.1.6.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (1.11.1.6)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.6.80.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.80)
+Requirement already satisfied: nvidia-curand-cu12==10.3.7.77.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (10.3.7.77)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.1.2.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (11.7.1.2)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.4.2.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.5.4.2)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.6.85.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.85)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.6.85.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.85)
+Requirement already satisfied: nvidia-nvtx-cu12==12.6.77.* in /usr/local/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==12.6.3; platform_system == "Linux"->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (12.6.77)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /usr/local/lib/python3.11/site-packages (from cuda-bindings<13,>=12.9.4->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (1.2.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.11/site-packages (from sympy>=1.13.3->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.11/site-packages (from jinja2->torch->timm>=1.0.23->transformers[timm]>=4.50.0) (3.0.3)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /usr/local/lib/python3.11/site-packages (from torchvision->timm>=1.0.23->transformers[timm]>=4.50.0) (12.1.1)
+Requirement already satisfied: click>=8.2.1 in /usr/local/lib/python3.11/site-packages (from typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (8.3.1)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.11/site-packages (from typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (1.5.4)
+Requirement already satisfied: rich>=12.3.0 in /usr/local/lib/python3.11/site-packages (from typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (14.3.3)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.11/site-packages (from typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (0.0.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.11/site-packages (from rich>=12.3.0->typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.11/site-packages (from rich>=12.3.0->typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.11/site-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->transformers>=4.50.0->transformers[timm]>=4.50.0) (0.1.2)
+Downloading http://pypi-mirror.modal.local:5555/simple/timm/timm-1.0.26-py3-none-any.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 288.4 MB/s  0:00:00
+Installing collected packages: timm
+Successfully installed timm-1.0.26
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+Installation was successful.
+1/3 [INSTALLED] ComfyUI-LTXVideo                                  [UNKNOWN]
+Download: git clone 'https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite'
+
+0it [00:00, ?it/s]
+  0%|          | 1.0/1594.0 [00:00<06:25,  4.14it/s]
+  1%|          | 16.0/1594.0 [00:00<00:23, 66.12it/s]
+  2%|▏         | 32.0/1594.0 [00:00<00:11, 132.21it/s]
+  3%|▎         | 48.0/1594.0 [00:00<00:07, 198.27it/s]
+  4%|▍         | 64.0/1594.0 [00:00<00:05, 264.30it/s]
+  5%|▌         | 80.0/1594.0 [00:00<00:04, 330.31it/s]
+  6%|▌         | 96.0/1594.0 [00:00<00:03, 396.24it/s]
+  7%|▋         | 112.0/1594.0 [00:00<00:03, 462.17it/s]
+  8%|▊         | 128.0/1594.0 [00:00<00:02, 528.02it/s]
+  9%|▉         | 144.0/1594.0 [00:00<00:02, 593.88it/s]
+ 10%|█         | 160.0/1594.0 [00:00<00:02, 659.68it/s]
+ 11%|█         | 176.0/1594.0 [00:00<00:01, 725.45it/s]
+ 12%|█▏        | 192.0/1594.0 [00:00<00:01, 791.26it/s]
+ 13%|█▎        | 208.0/1594.0 [00:00<00:01, 857.04it/s]
+ 14%|█▍        | 224.0/1594.0 [00:00<00:01, 922.75it/s]
+ 15%|█▌        | 240.0/1594.0 [00:00<00:01, 988.47it/s]
+ 16%|█▌        | 256.0/1594.0 [00:00<00:01, 1054.13it/s]
+ 17%|█▋        | 271.0/1594.0 [00:00<00:01, 1115.70it/s]
+ 18%|█▊        | 287.0/1594.0 [00:00<00:01, 1181.36it/s]
+ 19%|█▉        | 303.0/1594.0 [00:00<00:01, 1247.00it/s]
+ 20%|██        | 319.0/1594.0 [00:00<00:00, 1312.62it/s]
+ 21%|██        | 335.0/1594.0 [00:00<00:00, 1377.81it/s]
+ 22%|██▏       | 351.0/1594.0 [00:00<00:00, 1443.29it/s]
+ 23%|██▎       | 367.0/1594.0 [00:00<00:00, 1508.71it/s]
+ 24%|██▍       | 383.0/1594.0 [00:00<00:00, 1574.18it/s]
+ 25%|██▌       | 399.0/1594.0 [00:00<00:00, 1639.65it/s]
+ 26%|██▌       | 415.0/1594.0 [00:00<00:00, 1705.10it/s]
+ 27%|██▋       | 431.0/1594.0 [00:00<00:00, 1770.49it/s]
+ 28%|██▊       | 447.0/1594.0 [00:00<00:00, 1835.72it/s]
+ 29%|██▉       | 463.0/1594.0 [00:00<00:00, 1901.10it/s]
+ 30%|███       | 479.0/1594.0 [00:00<00:00, 1966.45it/s]
+ 31%|███       | 495.0/1594.0 [00:00<00:00, 2031.77it/s]
+ 32%|███▏      | 511.0/1594.0 [00:00<00:00, 2097.09it/s]
+ 33%|███▎      | 527.0/1594.0 [00:00<00:00, 2162.40it/s]
+ 34%|███▍      | 542.0/1594.0 [00:00<00:00, 2223.62it/s]
+ 35%|███▌      | 558.0/1594.0 [00:00<00:00, 2288.91it/s]
+ 36%|███▌      | 574.0/1594.0 [00:00<00:00, 2354.18it/s]
+ 37%|███▋      | 590.0/1594.0 [00:00<00:00, 2419.45it/s]
+ 38%|███▊      | 606.0/1594.0 [00:00<00:00, 2484.69it/s]
+ 39%|███▉      | 622.0/1594.0 [00:00<00:00, 2549.88it/s]
+ 40%|████      | 638.0/1594.0 [00:00<00:00, 2614.83it/s]
+ 41%|████      | 654.0/1594.0 [00:00<00:00, 2680.00it/s]
+ 42%|████▏     | 670.0/1594.0 [00:00<00:00, 2745.16it/s]
+ 43%|████▎     | 686.0/1594.0 [00:00<00:00, 2801.72it/s]
+ 44%|████▍     | 702.0/1594.0 [00:00<00:00, 2864.69it/s]
+ 45%|████▌     | 718.0/1594.0 [00:00<00:00, 2929.17it/s]
+ 46%|████▌     | 734.0/1594.0 [00:00<00:00, 2993.59it/s]
+ 47%|████▋     | 750.0/1594.0 [00:00<00:00, 3056.49it/s]
+ 48%|████▊     | 766.0/1594.0 [00:00<00:00, 3120.45it/s]
+ 49%|████▉     | 782.0/1594.0 [00:00<00:00, 3185.06it/s]
+ 50%|█████     | 797.0/1594.0 [00:00<00:00, 3245.18it/s]
+ 51%|█████     | 813.0/1594.0 [00:00<00:00, 3309.76it/s]
+ 52%|█████▏    | 829.0/1594.0 [00:00<00:00, 3374.11it/s]
+ 53%|█████▎    | 845.0/1594.0 [00:00<00:00, 3438.47it/s]
+ 54%|█████▍    | 861.0/1594.0 [00:00<00:00, 3503.04it/s]
+ 55%|█████▌    | 877.0/1594.0 [00:00<00:00, 3567.57it/s]
+ 56%|█████▌    | 893.0/1594.0 [00:00<00:00, 3631.79it/s]
+ 57%|█████▋    | 909.0/1594.0 [00:00<00:00, 3696.32it/s]
+ 58%|█████▊    | 925.0/1594.0 [00:00<00:00, 3760.73it/s]
+ 59%|█████▉    | 941.0/1594.0 [00:00<00:00, 3824.95it/s]
+ 60%|██████    | 957.0/1594.0 [00:00<00:00, 3889.05it/s]
+ 61%|██████    | 973.0/1594.0 [00:00<00:00, 3951.59it/s]
+ 62%|██████▏   | 989.0/1594.0 [00:00<00:00, 4014.70it/s]
+ 63%|██████▎   | 1005.0/1594.0 [00:00<00:00, 4078.68it/s]
+ 64%|██████▍   | 1021.0/1594.0 [00:00<00:00, 4142.13it/s]
+ 65%|██████▌   | 1037.0/1594.0 [00:00<00:00, 4206.17it/s]
+ 66%|██████▌   | 1053.0/1594.0 [00:00<00:00, 4270.03it/s]
+ 67%|██████▋   | 1068.0/1594.0 [00:00<00:00, 4330.01it/s]
+ 68%|██████▊   | 1084.0/1594.0 [00:00<00:00, 4393.97it/s]
+ 69%|██████▉   | 1100.0/1594.0 [00:00<00:00, 4457.98it/s]
+ 70%|███████   | 1116.0/1594.0 [00:00<00:00, 4521.94it/s]
+ 71%|███████   | 1132.0/1594.0 [00:00<00:00, 4585.51it/s]
+ 72%|███████▏  | 1148.0/1594.0 [00:00<00:00, 4649.05it/s]
+ 73%|███████▎  | 1164.0/1594.0 [00:00<00:00, 4711.24it/s]
+ 74%|███████▍  | 1180.0/1594.0 [00:00<00:00, 4774.40it/s]
+ 75%|███████▌  | 1196.0/1594.0 [00:00<00:00, 4835.82it/s]
+ 76%|███████▌  | 1212.0/1594.0 [00:00<00:00, 4898.48it/s]
+ 77%|███████▋  | 1228.0/1594.0 [00:00<00:00, 4962.05it/s]
+ 78%|███████▊  | 1244.0/1594.0 [00:00<00:00, 5025.75it/s]
+ 79%|███████▉  | 1260.0/1594.0 [00:00<00:00, 5089.37it/s]
+ 80%|████████  | 1276.0/1594.0 [00:00<00:00, 5152.81it/s]
+ 81%|████████  | 1292.0/1594.0 [00:00<00:00, 5216.42it/s]
+ 82%|████████▏ | 1308.0/1594.0 [00:00<00:00, 5279.57it/s]
+ 83%|████████▎ | 1324.0/1594.0 [00:00<00:00, 5342.72it/s]
+ 84%|████████▍ | 1339.0/1594.0 [00:00<00:00, 5402.16it/s]
+ 85%|████████▌ | 1355.0/1594.0 [00:00<00:00, 5465.13it/s]
+ 86%|████████▌ | 1371.0/1594.0 [00:00<00:00, 5528.35it/s]
+ 87%|████████▋ | 1387.0/1594.0 [00:00<00:00, 5591.42it/s]
+ 88%|████████▊ | 1403.0/1594.0 [00:00<00:00, 5654.80it/s]
+ 89%|████████▉ | 1419.0/1594.0 [00:00<00:00, 5718.40it/s]
+ 90%|█████████ | 1435.0/1594.0 [00:00<00:00, 5780.76it/s]
+ 91%|█████████ | 1451.0/1594.0 [00:00<00:00, 5843.21it/s]
+ 92%|█████████▏| 1467.0/1594.0 [00:00<00:00, 5906.35it/s]
+ 93%|█████████▎| 1483.0/1594.0 [00:00<00:00, 5969.40it/s]
+ 94%|█████████▍| 1499.0/1594.0 [00:00<00:00, 6032.82it/s]
+ 95%|█████████▌| 1515.0/1594.0 [00:00<00:00, 6096.09it/s]
+ 96%|█████████▌| 1531.0/1594.0 [00:00<00:00, 6158.90it/s]
+ 97%|█████████▋| 1547.0/1594.0 [00:00<00:00, 6222.31it/s]
+ 98%|█████████▊| 1563.0/1594.0 [00:00<00:00, 6285.48it/s]
+ 99%|█████████▉| 1579.0/1594.0 [00:00<00:00, 6348.83it/s]
+100%|██████████| 1594.0/1594.0 [00:00<00:00, 6405.61it/s]
+100%|██████████| 1594.0/1594.0 [00:00<00:00, 6403.00it/s]
+  0%|          | 1.0/369.0 [00:00<01:31,  4.02it/s]      
+  1%|          | 4.0/369.0 [00:00<00:22, 16.06it/s]
+  2%|▏         | 8.0/369.0 [00:00<00:11, 32.01it/s]
+  3%|▎         | 12.0/369.0 [00:00<00:07, 47.23it/s]
+  4%|▍         | 15.0/369.0 [00:00<00:06, 57.69it/s]
+  5%|▌         | 19.0/369.0 [00:00<00:04, 71.50it/s]
+  6%|▌         | 23.0/369.0 [00:00<00:04, 85.18it/s]
+  7%|▋         | 26.0/369.0 [00:00<00:03, 95.03it/s]
+  8%|▊         | 30.0/369.0 [00:00<00:03, 109.26it/s]
+  9%|▉         | 34.0/369.0 [00:00<00:02, 123.65it/s]
+ 10%|█         | 37.0/369.0 [00:00<00:02, 133.27it/s]
+ 11%|█         | 41.0/369.0 [00:00<00:02, 147.40it/s]
+ 12%|█▏        | 45.0/369.0 [00:00<00:02, 159.88it/s]
+ 13%|█▎        | 48.0/369.0 [00:00<00:01, 169.33it/s]
+ 14%|█▍        | 52.0/369.0 [00:00<00:01, 182.15it/s]
+ 15%|█▌        | 56.0/369.0 [00:00<00:01, 195.78it/s]
+ 16%|█▋        | 60.0/369.0 [00:00<00:01, 209.51it/s]
+ 17%|█▋        | 63.0/369.0 [00:00<00:01, 219.25it/s]
+ 18%|█▊        | 67.0/369.0 [00:00<00:01, 232.07it/s]
+ 19%|█▉        | 71.0/369.0 [00:00<00:01, 244.46it/s]
+ 20%|██        | 74.0/369.0 [00:00<00:01, 253.11it/s]
+ 21%|██        | 78.0/369.0 [00:00<00:01, 266.03it/s]
+ 22%|██▏       | 82.0/369.0 [00:00<00:01, 278.80it/s]
+ 23%|██▎       | 85.0/369.0 [00:00<00:00, 286.99it/s]
+ 24%|██▍       | 89.0/369.0 [00:00<00:00, 299.13it/s]
+ 25%|██▌       | 93.0/369.0 [00:00<00:00, 312.15it/s]
+ 26%|██▌       | 96.0/369.0 [00:00<00:00, 321.51it/s]
+ 27%|██▋       | 100.0/369.0 [00:00<00:00, 334.76it/s]
+ 28%|██▊       | 104.0/369.0 [00:00<00:00, 347.89it/s]
+ 29%|██▉       | 108.0/369.0 [00:00<00:00, 361.09it/s]
+ 30%|███       | 111.0/369.0 [00:00<00:00, 371.01it/s]
+ 31%|███       | 115.0/369.0 [00:00<00:00, 384.26it/s]
+ 32%|███▏      | 119.0/369.0 [00:00<00:00, 397.55it/s]
+ 33%|███▎      | 122.0/369.0 [00:00<00:00, 407.51it/s]
+ 34%|███▍      | 126.0/369.0 [00:00<00:00, 420.76it/s]
+ 35%|███▌      | 130.0/369.0 [00:00<00:00, 434.05it/s]
+ 36%|███▌      | 133.0/369.0 [00:00<00:00, 443.99it/s]
+ 37%|███▋      | 137.0/369.0 [00:00<00:00, 457.11it/s]
+ 38%|███▊      | 141.0/369.0 [00:00<00:00, 470.30it/s]
+ 39%|███▉      | 144.0/369.0 [00:00<00:00, 480.14it/s]
+ 40%|████      | 148.0/369.0 [00:00<00:00, 493.38it/s]
+ 41%|████      | 152.0/369.0 [00:00<00:00, 506.62it/s]
+ 42%|████▏     | 155.0/369.0 [00:00<00:00, 516.54it/s]
+ 43%|████▎     | 159.0/369.0 [00:00<00:00, 529.70it/s]
+ 44%|████▍     | 163.0/369.0 [00:00<00:00, 542.86it/s]
+ 45%|████▌     | 167.0/369.0 [00:00<00:00, 556.06it/s]
+ 46%|████▌     | 170.0/369.0 [00:00<00:00, 565.96it/s]
+ 47%|████▋     | 174.0/369.0 [00:00<00:00, 579.17it/s]
+ 48%|████▊     | 178.0/369.0 [00:00<00:00, 592.39it/s]
+ 49%|████▉     | 181.0/369.0 [00:00<00:00, 602.27it/s]
+ 50%|█████     | 185.0/369.0 [00:00<00:00, 615.43it/s]
+ 51%|█████     | 189.0/369.0 [00:00<00:00, 628.59it/s]
+ 52%|█████▏    | 192.0/369.0 [00:00<00:00, 638.44it/s]
+ 53%|█████▎    | 196.0/369.0 [00:00<00:00, 651.62it/s]
+ 54%|█████▍    | 200.0/369.0 [00:00<00:00, 664.77it/s]
+ 55%|█████▌    | 203.0/369.0 [00:00<00:00, 674.66it/s]
+ 56%|█████▌    | 207.0/369.0 [00:00<00:00, 687.82it/s]
+ 57%|█████▋    | 211.0/369.0 [00:00<00:00, 701.02it/s]
+ 58%|█████▊    | 215.0/369.0 [00:00<00:00, 714.22it/s]
+ 59%|█████▉    | 218.0/369.0 [00:00<00:00, 724.09it/s]
+ 60%|██████    | 222.0/369.0 [00:00<00:00, 737.27it/s]
+ 61%|██████    | 226.0/369.0 [00:00<00:00, 750.38it/s]
+ 62%|██████▏   | 229.0/369.0 [00:00<00:00, 760.19it/s]
+ 63%|██████▎   | 233.0/369.0 [00:00<00:00, 773.31it/s]
+ 64%|██████▍   | 237.0/369.0 [00:00<00:00, 786.44it/s]
+ 65%|██████▌   | 240.0/369.0 [00:00<00:00, 796.28it/s]
+ 66%|██████▌   | 244.0/369.0 [00:00<00:00, 809.41it/s]
+ 67%|██████▋   | 248.0/369.0 [00:00<00:00, 822.49it/s]
+ 68%|██████▊   | 251.0/369.0 [00:00<00:00, 832.32it/s]
+ 69%|██████▉   | 255.0/369.0 [00:00<00:00, 845.44it/s]
+ 70%|███████   | 259.0/369.0 [00:00<00:00, 858.55it/s]
+ 71%|███████   | 262.0/369.0 [00:00<00:00, 868.38it/s]
+ 72%|███████▏  | 266.0/369.0 [00:00<00:00, 881.49it/s]
+ 73%|███████▎  | 270.0/369.0 [00:00<00:00, 894.61it/s]
+ 74%|███████▍  | 274.0/369.0 [00:00<00:00, 907.69it/s]
+ 75%|███████▌  | 277.0/369.0 [00:00<00:00, 917.52it/s]
+ 76%|███████▌  | 281.0/369.0 [00:00<00:00, 930.56it/s]
+ 77%|███████▋  | 285.0/369.0 [00:00<00:00, 943.60it/s]
+ 78%|███████▊  | 288.0/369.0 [00:00<00:00, 952.87it/s]
+ 79%|███████▉  | 292.0/369.0 [00:00<00:00, 965.36it/s]
+ 80%|████████  | 296.0/369.0 [00:00<00:00, 978.14it/s]
+ 81%|████████  | 299.0/369.0 [00:00<00:00, 986.79it/s]
+ 82%|████████▏ | 303.0/369.0 [00:00<00:00, 999.52it/s]
+ 83%|████████▎ | 307.0/369.0 [00:00<00:00, 1012.36it/s]
+ 84%|████████▍ | 310.0/369.0 [00:00<00:00, 1021.18it/s]
+ 85%|████████▌ | 314.0/369.0 [00:00<00:00, 1033.91it/s]
+ 86%|████████▌ | 318.0/369.0 [00:00<00:00, 1046.91it/s]
+ 87%|████████▋ | 322.0/369.0 [00:00<00:00, 1059.87it/s]
+ 88%|████████▊ | 325.0/369.0 [00:00<00:00, 1069.07it/s]
+ 89%|████████▉ | 329.0/369.0 [00:00<00:00, 1081.82it/s]
+ 90%|█████████ | 333.0/369.0 [00:00<00:00, 1094.76it/s]
+ 91%|█████████ | 336.0/369.0 [00:00<00:00, 1104.27it/s]
+ 92%|█████████▏| 340.0/369.0 [00:00<00:00, 1117.14it/s]
+ 93%|█████████▎| 344.0/369.0 [00:00<00:00, 1130.04it/s]
+ 94%|█████████▍| 347.0/369.0 [00:00<00:00, 1139.43it/s]
+ 95%|█████████▌| 351.0/369.0 [00:00<00:00, 1152.05it/s]
+ 96%|█████████▌| 355.0/369.0 [00:00<00:00, 1164.98it/s]
+ 97%|█████████▋| 358.0/369.0 [00:00<00:00, 1174.62it/s]
+ 98%|█████████▊| 362.0/369.0 [00:00<00:00, 1187.49it/s]
+ 99%|█████████▉| 366.0/369.0 [00:00<00:00, 1200.42it/s]
+100%|██████████| 369.0/369.0 [00:00<00:00, 1210.11it/s]
+100%|██████████| 369.0/369.0 [00:00<00:00, 1209.88it/s]
+  0%|          | 1.0/3345.0 [00:00<17:20,  3.22it/s]   
+  1%|          | 34.0/3345.0 [00:00<00:30, 108.77it/s]
+  2%|▏         | 67.0/3345.0 [00:00<00:15, 213.02it/s]
+  3%|▎         | 101.0/3345.0 [00:00<00:10, 319.32it/s]
+  4%|▍         | 134.0/3345.0 [00:00<00:07, 422.34it/s]
+  5%|▌         | 168.0/3345.0 [00:00<00:06, 528.21it/s]
+  6%|▌         | 201.0/3345.0 [00:00<00:04, 630.90it/s]
+  7%|▋         | 235.0/3345.0 [00:00<00:04, 736.02it/s]
+  8%|▊         | 268.0/3345.0 [00:00<00:03, 837.97it/s]
+  9%|▉         | 302.0/3345.0 [00:00<00:03, 942.00it/s]
+ 10%|█         | 335.0/3345.0 [00:00<00:02, 1043.02it/s]
+ 11%|█         | 368.0/3345.0 [00:00<00:02, 1143.61it/s]
+ 12%|█▏        | 402.0/3345.0 [00:00<00:02, 1247.23it/s]
+ 13%|█▎        | 435.0/3345.0 [00:00<00:02, 1346.33it/s]
+ 14%|█▍        | 469.0/3345.0 [00:00<00:01, 1449.85it/s]
+ 15%|█▌        | 502.0/3345.0 [00:00<00:01, 1549.83it/s]
+ 16%|█▌        | 536.0/3345.0 [00:00<00:01, 1652.63it/s]
+ 17%|█▋        | 569.0/3345.0 [00:00<00:01, 1749.73it/s]
+ 18%|█▊        | 603.0/3345.0 [00:00<00:01, 1850.34it/s]
+ 19%|█▉        | 636.0/3345.0 [00:00<00:01, 1947.97it/s]
+ 20%|██        | 669.0/3345.0 [00:00<00:01, 2046.22it/s]
+ 21%|██        | 703.0/3345.0 [00:00<00:01, 2146.28it/s]
+ 22%|██▏       | 736.0/3345.0 [00:00<00:01, 2244.55it/s]
+ 23%|██▎       | 770.0/3345.0 [00:00<00:01, 2344.49it/s]
+ 24%|██▍       | 803.0/3345.0 [00:00<00:01, 2441.93it/s]
+ 25%|██▌       | 837.0/3345.0 [00:00<00:00, 2541.14it/s]
+ 26%|██▌       | 870.0/3345.0 [00:00<00:00, 2636.85it/s]
+ 27%|██▋       | 904.0/3345.0 [00:00<00:00, 2735.92it/s]
+ 28%|██▊       | 937.0/3345.0 [00:00<00:00, 2832.07it/s]
+ 29%|██▉       | 971.0/3345.0 [00:00<00:00, 2933.08it/s]
+ 30%|███       | 1004.0/3345.0 [00:00<00:00, 3029.93it/s]
+ 31%|███       | 1037.0/3345.0 [00:00<00:00, 3125.15it/s]
+ 32%|███▏      | 1071.0/3345.0 [00:00<00:00, 3223.63it/s]
+ 33%|███▎      | 1104.0/3345.0 [00:00<00:00, 3321.92it/s]
+ 34%|███▍      | 1138.0/3345.0 [00:00<00:00, 3421.21it/s]
+ 35%|███▌      | 1171.0/3345.0 [00:00<00:00, 3519.24it/s]
+ 36%|███▌      | 1205.0/3345.0 [00:00<00:00, 3618.18it/s]
+ 37%|███▋      | 1238.0/3345.0 [00:00<00:00, 3714.13it/s]
+ 38%|███▊      | 1272.0/3345.0 [00:00<00:00, 3812.13it/s]
+ 39%|███▉      | 1305.0/3345.0 [00:00<00:00, 3907.56it/s]
+ 40%|████      | 1338.0/3345.0 [00:00<00:00, 3997.58it/s]
+ 41%|████      | 1372.0/3345.0 [00:00<00:00, 4096.66it/s]
+ 42%|████▏     | 1405.0/3345.0 [00:00<00:00, 4192.93it/s]
+ 43%|████▎     | 1439.0/3345.0 [00:00<00:00, 4291.30it/s]
+ 44%|████▍     | 1472.0/3345.0 [00:00<00:00, 4387.98it/s]
+ 45%|████▌     | 1506.0/3345.0 [00:00<00:00, 4473.82it/s]
+ 46%|████▌     | 1539.0/3345.0 [00:00<00:00, 4564.76it/s]
+ 47%|████▋     | 1573.0/3345.0 [00:00<00:00, 4659.46it/s]
+ 48%|████▊     | 1606.0/3345.0 [00:00<00:00, 4755.00it/s]
+ 49%|████▉     | 1640.0/3345.0 [00:00<00:00, 4849.70it/s]
+ 50%|█████     | 1673.0/3345.0 [00:00<00:00, 4936.14it/s]
+ 51%|█████     | 1706.0/3345.0 [00:00<00:00, 5027.50it/s]
+ 52%|█████▏    | 1740.0/3345.0 [00:00<00:00, 5121.76it/s]
+ 53%|█████▎    | 1773.0/3345.0 [00:00<00:00, 5212.97it/s]
+ 54%|█████▍    | 1807.0/3345.0 [00:00<00:00, 5306.62it/s]
+ 55%|█████▌    | 1840.0/3345.0 [00:00<00:00, 5400.65it/s]
+ 56%|█████▌    | 1874.0/3345.0 [00:00<00:00, 5498.55it/s]
+ 57%|█████▋    | 1907.0/3345.0 [00:00<00:00, 5594.33it/s]
+ 58%|█████▊    | 1941.0/3345.0 [00:00<00:00, 5693.04it/s]
+ 59%|█████▉    | 1974.0/3345.0 [00:00<00:00, 5789.07it/s]
+ 60%|██████    | 2007.0/3345.0 [00:00<00:00, 5884.53it/s]
+ 61%|██████    | 2041.0/3345.0 [00:00<00:00, 5983.39it/s]
+ 62%|██████▏   | 2074.0/3345.0 [00:00<00:00, 6079.04it/s]
+ 63%|██████▎   | 2108.0/3345.0 [00:00<00:00, 6177.19it/s]
+ 64%|██████▍   | 2141.0/3345.0 [00:00<00:00, 6272.64it/s]
+ 65%|██████▌   | 2175.0/3345.0 [00:00<00:00, 6369.48it/s]
+ 66%|██████▌   | 2208.0/3345.0 [00:00<00:00, 6463.82it/s]
+ 67%|██████▋   | 2242.0/3345.0 [00:00<00:00, 6562.32it/s]
+ 68%|██████▊   | 2275.0/3345.0 [00:00<00:00, 6657.47it/s]
+ 69%|██████▉   | 2309.0/3345.0 [00:00<00:00, 6756.04it/s]
+ 70%|███████   | 2342.0/3345.0 [00:00<00:00, 6850.45it/s]
+ 71%|███████   | 2375.0/3345.0 [00:00<00:00, 6945.14it/s]
+ 72%|███████▏  | 2409.0/3345.0 [00:00<00:00, 7043.01it/s]
+ 73%|███████▎  | 2442.0/3345.0 [00:00<00:00, 7138.11it/s]
+ 74%|███████▍  | 2476.0/3345.0 [00:00<00:00, 7236.13it/s]
+ 75%|███████▌  | 2509.0/3345.0 [00:00<00:00, 7330.95it/s]
+ 76%|███████▌  | 2543.0/3345.0 [00:00<00:00, 7429.05it/s]
+ 77%|███████▋  | 2576.0/3345.0 [00:00<00:00, 7524.25it/s]
+ 78%|███████▊  | 2610.0/3345.0 [00:00<00:00, 7622.38it/s]
+ 79%|███████▉  | 2643.0/3345.0 [00:00<00:00, 7717.50it/s]
+ 80%|████████  | 2676.0/3345.0 [00:00<00:00, 7812.63it/s]
+ 81%|████████  | 2710.0/3345.0 [00:00<00:00, 7910.18it/s]
+ 82%|████████▏ | 2743.0/3345.0 [00:00<00:00, 7996.78it/s]
+ 83%|████████▎ | 2777.0/3345.0 [00:00<00:00, 8072.18it/s]
+ 84%|████████▍ | 2810.0/3345.0 [00:00<00:00, 8164.48it/s]
+ 85%|████████▌ | 2844.0/3345.0 [00:00<00:00, 8260.67it/s]
+ 86%|████████▌ | 2877.0/3345.0 [00:00<00:00, 8303.02it/s]
+ 87%|████████▋ | 2911.0/3345.0 [00:00<00:00, 8398.14it/s]
+ 88%|████████▊ | 2944.0/3345.0 [00:00<00:00, 8491.52it/s]
+ 89%|████████▉ | 2978.0/3345.0 [00:00<00:00, 8578.57it/s]
+ 90%|█████████ | 3011.0/3345.0 [00:00<00:00, 8664.58it/s]
+ 91%|█████████ | 3044.0/3345.0 [00:00<00:00, 8756.98it/s]
+ 92%|█████████▏| 3078.0/3345.0 [00:00<00:00, 8853.12it/s]
+ 93%|█████████▎| 3111.0/3345.0 [00:00<00:00, 8941.92it/s]
+ 94%|█████████▍| 3145.0/3345.0 [00:00<00:00, 9026.58it/s]
+ 95%|█████████▌| 3178.0/3345.0 [00:00<00:00, 9114.12it/s]
+ 96%|█████████▌| 3212.0/3345.0 [00:00<00:00, 9202.21it/s]
+ 97%|█████████▋| 3245.0/3345.0 [00:00<00:00, 9293.39it/s]
+ 98%|█████████▊| 3279.0/3345.0 [00:00<00:00, 9377.99it/s]
+ 99%|█████████▉| 3312.0/3345.0 [00:00<00:00, 9468.81it/s]
+100%|██████████| 3345.0/3345.0 [00:00<00:00, 9560.61it/s]
+100%|██████████| 3345.0/3345.0 [00:00<00:00, 9559.31it/s]
+  0%|          | 0.0/1972.0 [00:00<?, ?it/s]             
+  1%|          | 20.0/1972.0 [00:00<00:35, 55.41it/s]
+  2%|▏         | 42.0/1972.0 [00:00<00:16, 115.20it/s]
+  3%|▎         | 60.0/1972.0 [00:00<00:11, 163.19it/s]
+  4%|▍         | 80.0/1972.0 [00:00<00:08, 216.43it/s]
+  5%|▌         | 100.0/1972.0 [00:00<00:06, 269.43it/s]
+  6%|▌         | 120.0/1972.0 [00:00<00:05, 322.26it/s]
+  7%|▋         | 139.0/1972.0 [00:00<00:04, 371.71it/s]
+  8%|▊         | 158.0/1972.0 [00:00<00:04, 421.34it/s]
+  9%|▉         | 178.0/1972.0 [00:00<00:03, 473.09it/s]
+ 10%|█         | 199.0/1972.0 [00:00<00:03, 528.14it/s]
+ 11%|█         | 218.0/1972.0 [00:00<00:03, 577.17it/s]
+ 12%|█▏        | 237.0/1972.0 [00:00<00:02, 626.11it/s]
+ 13%|█▎        | 257.0/1972.0 [00:00<00:02, 675.30it/s]
+ 14%|█▍        | 277.0/1972.0 [00:00<00:02, 725.49it/s]
+ 15%|█▌        | 296.0/1972.0 [00:00<00:02, 772.95it/s]
+ 16%|█▌        | 316.0/1972.0 [00:00<00:02, 823.14it/s]
+ 17%|█▋        | 338.0/1972.0 [00:00<00:01, 878.95it/s]
+ 18%|█▊        | 355.0/1972.0 [00:00<00:01, 921.50it/s]
+ 19%|█▉        | 375.0/1972.0 [00:00<00:01, 971.95it/s]
+ 20%|██        | 395.0/1972.0 [00:00<00:01, 1021.98it/s]
+ 21%|██        | 415.0/1972.0 [00:00<00:01, 1070.63it/s]
+ 22%|██▏       | 434.0/1972.0 [00:00<00:01, 1116.46it/s]
+ 23%|██▎       | 455.0/1972.0 [00:00<00:01, 1167.23it/s]
+ 24%|██▍       | 474.0/1972.0 [00:00<00:01, 1213.62it/s]
+ 25%|██▌       | 493.0/1972.0 [00:00<00:01, 1259.32it/s]
+ 26%|██▌       | 515.0/1972.0 [00:00<00:01, 1313.87it/s]
+ 27%|██▋       | 533.0/1972.0 [00:00<00:01, 1358.31it/s]
+ 28%|██▊       | 554.0/1972.0 [00:00<00:01, 1410.34it/s]
+ 29%|██▉       | 574.0/1972.0 [00:00<00:00, 1459.92it/s]
+ 30%|███       | 592.0/1972.0 [00:00<00:00, 1504.16it/s]
+ 31%|███       | 612.0/1972.0 [00:00<00:00, 1553.56it/s]
+ 32%|███▏      | 635.0/1972.0 [00:00<00:00, 1610.82it/s]
+ 33%|███▎      | 651.0/1972.0 [00:00<00:00, 1649.62it/s]
+ 34%|███▍      | 671.0/1972.0 [00:00<00:00, 1698.33it/s]
+ 35%|███▌      | 692.0/1972.0 [00:00<00:00, 1749.42it/s]
+ 36%|███▌      | 710.0/1972.0 [00:00<00:00, 1792.89it/s]
+ 37%|███▋      | 730.0/1972.0 [00:00<00:00, 1840.93it/s]
+ 38%|███▊      | 750.0/1972.0 [00:00<00:00, 1888.82it/s]
+ 39%|███▉      | 771.0/1972.0 [00:00<00:00, 1939.86it/s]
+ 40%|████      | 790.0/1972.0 [00:00<00:00, 1985.83it/s]
+ 41%|████      | 809.0/1972.0 [00:00<00:00, 2031.62it/s]
+ 42%|████▏     | 829.0/1972.0 [00:00<00:00, 2079.55it/s]
+ 43%|████▎     | 848.0/1972.0 [00:00<00:00, 2124.01it/s]
+ 44%|████▍     | 868.0/1972.0 [00:00<00:00, 2171.47it/s]
+ 45%|████▌     | 888.0/1972.0 [00:00<00:00, 2219.40it/s]
+ 46%|████▌     | 908.0/1972.0 [00:00<00:00, 2266.62it/s]
+ 47%|████▋     | 927.0/1972.0 [00:00<00:00, 2311.79it/s]
+ 48%|████▊     | 947.0/1972.0 [00:00<00:00, 2358.76it/s]
+ 49%|████▉     | 967.0/1972.0 [00:00<00:00, 2405.63it/s]
+ 50%|█████     | 987.0/1972.0 [00:00<00:00, 2453.08it/s]
+ 51%|█████     | 1006.0/1972.0 [00:00<00:00, 2498.43it/s]
+ 52%|█████▏    | 1026.0/1972.0 [00:00<00:00, 2545.25it/s]
+ 53%|█████▎    | 1046.0/1972.0 [00:00<00:00, 2593.00it/s]
+ 54%|█████▍    | 1068.0/1972.0 [00:00<00:00, 2645.27it/s]
+ 55%|█████▌    | 1085.0/1972.0 [00:00<00:00, 2685.31it/s]
+ 56%|█████▌    | 1106.0/1972.0 [00:00<00:00, 2734.74it/s]
+ 57%|█████▋    | 1126.0/1972.0 [00:00<00:00, 2781.23it/s]
+ 58%|█████▊    | 1144.0/1972.0 [00:00<00:00, 2822.81it/s]
+ 59%|█████▉    | 1164.0/1972.0 [00:00<00:00, 2869.48it/s]
+ 60%|██████    | 1185.0/1972.0 [00:00<00:00, 2918.37it/s]
+ 61%|██████    | 1203.0/1972.0 [00:00<00:00, 2959.26it/s]
+ 62%|██████▏   | 1223.0/1972.0 [00:00<00:00, 3003.69it/s]
+ 63%|██████▎   | 1243.0/1972.0 [00:00<00:00, 3049.77it/s]
+ 64%|██████▍   | 1263.0/1972.0 [00:00<00:00, 3096.43it/s]
+ 65%|██████▌   | 1282.0/1972.0 [00:00<00:00, 3140.24it/s]
+ 66%|██████▌   | 1303.0/1972.0 [00:00<00:00, 3189.08it/s]
+ 67%|██████▋   | 1322.0/1972.0 [00:00<00:00, 3233.01it/s]
+ 68%|██████▊   | 1341.0/1972.0 [00:00<00:00, 3275.82it/s]
+ 69%|██████▉   | 1361.0/1972.0 [00:00<00:00, 3322.08it/s]
+ 70%|███████   | 1383.0/1972.0 [00:00<00:00, 3373.31it/s]
+ 71%|███████   | 1401.0/1972.0 [00:00<00:00, 3413.83it/s]
+ 72%|███████▏  | 1421.0/1972.0 [00:00<00:00, 3459.39it/s]
+ 73%|███████▎  | 1443.0/1972.0 [00:00<00:00, 3506.78it/s]
+ 74%|███████▍  | 1460.0/1972.0 [00:00<00:00, 3542.59it/s]
+ 75%|███████▌  | 1479.0/1972.0 [00:00<00:00, 3583.73it/s]
+ 76%|███████▌  | 1500.0/1972.0 [00:00<00:00, 3630.53it/s]
+ 77%|███████▋  | 1519.0/1972.0 [00:00<00:00, 3669.96it/s]
+ 78%|███████▊  | 1539.0/1972.0 [00:00<00:00, 3710.71it/s]
+ 79%|███████▉  | 1559.0/1972.0 [00:00<00:00, 3740.89it/s]
+ 80%|████████  | 1580.0/1972.0 [00:00<00:00, 3783.79it/s]
+ 81%|████████  | 1599.0/1972.0 [00:00<00:00, 3822.49it/s]
+ 82%|████████▏ | 1619.0/1972.0 [00:00<00:00, 3864.96it/s]
+ 83%|████████▎ | 1637.0/1972.0 [00:00<00:00, 3894.38it/s]
+ 84%|████████▍ | 1657.0/1972.0 [00:00<00:00, 3934.69it/s]
+ 85%|████████▌ | 1679.0/1972.0 [00:00<00:00, 3967.69it/s]
+ 86%|████████▌ | 1696.0/1972.0 [00:00<00:00, 3995.36it/s]
+ 87%|████████▋ | 1717.0/1972.0 [00:00<00:00, 4033.15it/s]
+ 88%|████████▊ | 1736.0/1972.0 [00:00<00:00, 4068.60it/s]
+ 89%|████████▉ | 1759.0/1972.0 [00:00<00:00, 4112.95it/s]
+ 90%|█████████ | 1776.0/1972.0 [00:00<00:00, 4137.10it/s]
+ 91%|█████████ | 1795.0/1972.0 [00:00<00:00, 4176.22it/s]
+ 92%|█████████▏| 1816.0/1972.0 [00:00<00:00, 4213.46it/s]
+ 93%|█████████▎| 1834.0/1972.0 [00:00<00:00, 4244.09it/s]
+ 94%|█████████▍| 1854.0/1972.0 [00:00<00:00, 4279.14it/s]
+ 95%|█████████▌| 1875.0/1972.0 [00:00<00:00, 4312.74it/s]
+ 96%|█████████▌| 1894.0/1972.0 [00:00<00:00, 4347.17it/s]
+ 97%|█████████▋| 1914.0/1972.0 [00:00<00:00, 4374.06it/s]
+ 98%|█████████▊| 1933.0/1972.0 [00:00<00:00, 4399.05it/s]
+ 99%|█████████▉| 1953.0/1972.0 [00:00<00:00, 4367.73it/s]
+100%|██████████| 1972.0/1972.0 [00:00<00:00, 4404.82it/s]
+100%|██████████| 1972.0/1972.0 [00:00<00:00, 4403.60it/s]
+100%|██████████| 1972.0/1972.0 [00:00<00:00, 2609.99it/s]
+Install: pip packages
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'opencv-python']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting opencv-python
+  Downloading http://pypi-mirror.modal.local:5555/simple/opencv-python/opencv_python-4.13.0.92-cp37-abi3-manylinux_2_28_x86_64.whl.metadata (19 kB)
+Requirement already satisfied: numpy>=2 in /usr/local/lib/python3.11/site-packages (from opencv-python) (2.4.3)
+Downloading http://pypi-mirror.modal.local:5555/simple/opencv-python/opencv_python-4.13.0.92-cp37-abi3-manylinux_2_28_x86_64.whl (72.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.9/72.9 MB 280.3 MB/s  0:00:00
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.13.0.92
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'imageio-ffmpeg']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting imageio-ffmpeg
+  Downloading http://pypi-mirror.modal.local:5555/simple/imageio-ffmpeg/imageio_ffmpeg-0.6.0-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
+Downloading http://pypi-mirror.modal.local:5555/simple/imageio-ffmpeg/imageio_ffmpeg-0.6.0-py3-none-manylinux2014_x86_64.whl (29.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 29.5/29.5 MB 158.8 MB/s  0:00:00
+Installing collected packages: imageio-ffmpeg
+Successfully installed imageio-ffmpeg-0.6.0
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+Installation was successful.
+2/3 [INSTALLED] ComfyUI-VideoHelperSuite                          [UNKNOWN]
+Download: git clone 'https://github.com/city96/ComfyUI-GGUF'
+
+0it [00:00, ?it/s]
+  0%|          | 1.0/508.0 [00:00<02:02,  4.14it/s]
+  1%|          | 6.0/508.0 [00:00<00:20, 24.80it/s]
+  2%|▏         | 11.0/508.0 [00:00<00:10, 45.46it/s]
+  3%|▎         | 16.0/508.0 [00:00<00:07, 66.10it/s]
+  4%|▍         | 21.0/508.0 [00:00<00:05, 86.74it/s]
+  5%|▌         | 26.0/508.0 [00:00<00:04, 107.37it/s]
+  6%|▌         | 31.0/508.0 [00:00<00:03, 128.00it/s]
+  7%|▋         | 36.0/508.0 [00:00<00:03, 148.62it/s]
+  8%|▊         | 41.0/508.0 [00:00<00:02, 169.17it/s]
+  9%|▉         | 46.0/508.0 [00:00<00:02, 189.76it/s]
+ 10%|█         | 51.0/508.0 [00:00<00:02, 210.35it/s]
+ 11%|█         | 56.0/508.0 [00:00<00:01, 230.93it/s]
+ 12%|█▏        | 61.0/508.0 [00:00<00:01, 251.51it/s]
+ 13%|█▎        | 67.0/508.0 [00:00<00:01, 276.19it/s]
+ 14%|█▍        | 72.0/508.0 [00:00<00:01, 296.76it/s]
+ 15%|█▌        | 77.0/508.0 [00:00<00:01, 317.31it/s]
+ 16%|█▌        | 82.0/508.0 [00:00<00:01, 337.86it/s]
+ 17%|█▋        | 87.0/508.0 [00:00<00:01, 358.39it/s]
+ 18%|█▊        | 92.0/508.0 [00:00<00:01, 378.92it/s]
+ 19%|█▉        | 97.0/508.0 [00:00<00:01, 399.42it/s]
+ 20%|██        | 102.0/508.0 [00:00<00:00, 419.95it/s]
+ 21%|██        | 107.0/508.0 [00:00<00:00, 440.45it/s]
+ 22%|██▏       | 112.0/508.0 [00:00<00:00, 460.89it/s]
+ 23%|██▎       | 117.0/508.0 [00:00<00:00, 481.39it/s]
+ 24%|██▍       | 122.0/508.0 [00:00<00:00, 501.88it/s]
+ 25%|██▌       | 127.0/508.0 [00:00<00:00, 522.36it/s]
+ 26%|██▌       | 133.0/508.0 [00:00<00:00, 546.95it/s]
+ 27%|██▋       | 138.0/508.0 [00:00<00:00, 567.42it/s]
+ 28%|██▊       | 143.0/508.0 [00:00<00:00, 587.87it/s]
+ 29%|██▉       | 148.0/508.0 [00:00<00:00, 608.27it/s]
+ 30%|███       | 153.0/508.0 [00:00<00:00, 628.68it/s]
+ 31%|███       | 158.0/508.0 [00:00<00:00, 649.09it/s]
+ 32%|███▏      | 163.0/508.0 [00:00<00:00, 669.50it/s]
+ 33%|███▎      | 168.0/508.0 [00:00<00:00, 689.93it/s]
+ 34%|███▍      | 173.0/508.0 [00:00<00:00, 710.34it/s]
+ 35%|███▌      | 178.0/508.0 [00:00<00:00, 730.76it/s]
+ 36%|███▌      | 183.0/508.0 [00:00<00:00, 751.19it/s]
+ 37%|███▋      | 188.0/508.0 [00:00<00:00, 771.61it/s]
+ 38%|███▊      | 194.0/508.0 [00:00<00:00, 796.03it/s]
+ 39%|███▉      | 199.0/508.0 [00:00<00:00, 816.40it/s]
+ 40%|████      | 204.0/508.0 [00:00<00:00, 836.80it/s]
+ 41%|████      | 209.0/508.0 [00:00<00:00, 857.19it/s]
+ 42%|████▏     | 214.0/508.0 [00:00<00:00, 877.56it/s]
+ 43%|████▎     | 219.0/508.0 [00:00<00:00, 897.33it/s]
+ 44%|████▍     | 224.0/508.0 [00:00<00:00, 917.25it/s]
+ 45%|████▌     | 229.0/508.0 [00:00<00:00, 937.38it/s]
+ 46%|████▌     | 234.0/508.0 [00:00<00:00, 957.54it/s]
+ 47%|████▋     | 239.0/508.0 [00:00<00:00, 977.72it/s]
+ 48%|████▊     | 244.0/508.0 [00:00<00:00, 997.95it/s]
+ 49%|████▉     | 249.0/508.0 [00:00<00:00, 1017.80it/s]
+ 50%|█████     | 254.0/508.0 [00:00<00:00, 1037.87it/s]
+ 51%|█████     | 260.0/508.0 [00:00<00:00, 1062.04it/s]
+ 52%|█████▏    | 265.0/508.0 [00:00<00:00, 1082.05it/s]
+ 53%|█████▎    | 270.0/508.0 [00:00<00:00, 1101.75it/s]
+ 54%|█████▍    | 275.0/508.0 [00:00<00:00, 1121.66it/s]
+ 55%|█████▌    | 280.0/508.0 [00:00<00:00, 1141.84it/s]
+ 56%|█████▌    | 285.0/508.0 [00:00<00:00, 1161.53it/s]
+ 57%|█████▋    | 290.0/508.0 [00:00<00:00, 1181.44it/s]
+ 58%|█████▊    | 295.0/508.0 [00:00<00:00, 1201.46it/s]
+ 59%|█████▉    | 300.0/508.0 [00:00<00:00, 1221.51it/s]
+ 60%|██████    | 305.0/508.0 [00:00<00:00, 1241.56it/s]
+ 61%|██████    | 310.0/508.0 [00:00<00:00, 1261.67it/s]
+ 62%|██████▏   | 315.0/508.0 [00:00<00:00, 1281.69it/s]
+ 63%|██████▎   | 321.0/508.0 [00:00<00:00, 1305.86it/s]
+ 64%|██████▍   | 326.0/508.0 [00:00<00:00, 1325.96it/s]
+ 65%|██████▌   | 331.0/508.0 [00:00<00:00, 1346.07it/s]
+ 66%|██████▌   | 336.0/508.0 [00:00<00:00, 1366.17it/s]
+ 67%|██████▋   | 341.0/508.0 [00:00<00:00, 1385.70it/s]
+ 68%|██████▊   | 346.0/508.0 [00:00<00:00, 1405.53it/s]
+ 69%|██████▉   | 351.0/508.0 [00:00<00:00, 1425.59it/s]
+ 70%|███████   | 356.0/508.0 [00:00<00:00, 1445.54it/s]
+ 71%|███████   | 361.0/508.0 [00:00<00:00, 1465.51it/s]
+ 72%|███████▏  | 366.0/508.0 [00:00<00:00, 1485.40it/s]
+ 73%|███████▎  | 371.0/508.0 [00:00<00:00, 1505.37it/s]
+ 74%|███████▍  | 376.0/508.0 [00:00<00:00, 1525.29it/s]
+ 75%|███████▌  | 381.0/508.0 [00:00<00:00, 1545.28it/s]
+ 76%|███████▌  | 387.0/508.0 [00:00<00:00, 1569.33it/s]
+ 77%|███████▋  | 392.0/508.0 [00:00<00:00, 1589.03it/s]
+ 78%|███████▊  | 397.0/508.0 [00:00<00:00, 1608.84it/s]
+ 79%|███████▉  | 402.0/508.0 [00:00<00:00, 1628.71it/s]
+ 80%|████████  | 407.0/508.0 [00:00<00:00, 1648.58it/s]
+ 81%|████████  | 412.0/508.0 [00:00<00:00, 1668.52it/s]
+ 82%|████████▏ | 417.0/508.0 [00:00<00:00, 1688.44it/s]
+ 83%|████████▎ | 422.0/508.0 [00:00<00:00, 1708.39it/s]
+ 84%|████████▍ | 427.0/508.0 [00:00<00:00, 1728.19it/s]
+ 85%|████████▌ | 432.0/508.0 [00:00<00:00, 1747.54it/s]
+ 86%|████████▌ | 437.0/508.0 [00:00<00:00, 1767.06it/s]
+ 87%|████████▋ | 442.0/508.0 [00:00<00:00, 1786.79it/s]
+ 88%|████████▊ | 448.0/508.0 [00:00<00:00, 1810.67it/s]
+ 89%|████████▉ | 453.0/508.0 [00:00<00:00, 1830.51it/s]
+ 90%|█████████ | 458.0/508.0 [00:00<00:00, 1849.85it/s]
+ 91%|█████████ | 463.0/508.0 [00:00<00:00, 1869.56it/s]
+ 92%|█████████▏| 468.0/508.0 [00:00<00:00, 1889.36it/s]
+ 93%|█████████▎| 473.0/508.0 [00:00<00:00, 1908.51it/s]
+ 94%|█████████▍| 478.0/508.0 [00:00<00:00, 1928.19it/s]
+ 95%|█████████▌| 483.0/508.0 [00:00<00:00, 1948.03it/s]
+ 96%|█████████▌| 488.0/508.0 [00:00<00:00, 1967.67it/s]
+ 97%|█████████▋| 493.0/508.0 [00:00<00:00, 1987.49it/s]
+ 98%|█████████▊| 498.0/508.0 [00:00<00:00, 2006.65it/s]
+ 99%|█████████▉| 503.0/508.0 [00:00<00:00, 2025.97it/s]
+100%|██████████| 508.0/508.0 [00:00<00:00, 2045.71it/s]
+100%|██████████| 508.0/508.0 [00:00<00:00, 2045.35it/s]
+  1%|          | 1.0/196.0 [00:00<00:48,  4.03it/s]    
+  1%|          | 2.0/196.0 [00:00<00:24,  8.05it/s]
+  2%|▏         | 4.0/196.0 [00:00<00:11, 16.09it/s]
+  3%|▎         | 6.0/196.0 [00:00<00:07, 24.14it/s]
+  4%|▍         | 8.0/196.0 [00:00<00:05, 32.18it/s]
+  5%|▌         | 10.0/196.0 [00:00<00:04, 40.20it/s]
+  6%|▌         | 12.0/196.0 [00:00<00:03, 48.22it/s]
+  7%|▋         | 14.0/196.0 [00:00<00:03, 56.24it/s]
+  8%|▊         | 16.0/196.0 [00:00<00:02, 64.26it/s]
+  9%|▉         | 18.0/196.0 [00:00<00:02, 72.27it/s]
+ 10%|█         | 20.0/196.0 [00:00<00:02, 80.21it/s]
+ 11%|█         | 22.0/196.0 [00:00<00:01, 87.83it/s]
+ 12%|█▏        | 24.0/196.0 [00:00<00:01, 95.69it/s]
+ 13%|█▎        | 26.0/196.0 [00:00<00:01, 103.36it/s]
+ 14%|█▍        | 28.0/196.0 [00:00<00:01, 111.06it/s]
+ 15%|█▌        | 30.0/196.0 [00:00<00:01, 118.86it/s]
+ 16%|█▋        | 32.0/196.0 [00:00<00:01, 126.63it/s]
+ 17%|█▋        | 34.0/196.0 [00:00<00:01, 134.39it/s]
+ 18%|█▊        | 36.0/196.0 [00:00<00:01, 142.13it/s]
+ 19%|█▉        | 38.0/196.0 [00:00<00:01, 149.96it/s]
+ 20%|██        | 40.0/196.0 [00:00<00:00, 157.67it/s]
+ 21%|██▏       | 42.0/196.0 [00:00<00:00, 165.35it/s]
+ 22%|██▏       | 44.0/196.0 [00:00<00:00, 173.17it/s]
+ 23%|██▎       | 46.0/196.0 [00:00<00:00, 181.01it/s]
+ 24%|██▍       | 48.0/196.0 [00:00<00:00, 188.84it/s]
+ 25%|██▌       | 49.0/196.0 [00:00<00:00, 192.73it/s]
+ 26%|██▌       | 51.0/196.0 [00:00<00:00, 200.38it/s]
+ 27%|██▋       | 53.0/196.0 [00:00<00:00, 208.20it/s]
+ 28%|██▊       | 55.0/196.0 [00:00<00:00, 215.99it/s]
+ 29%|██▉       | 57.0/196.0 [00:00<00:00, 223.81it/s]
+ 30%|███       | 59.0/196.0 [00:00<00:00, 231.63it/s]
+ 31%|███       | 61.0/196.0 [00:00<00:00, 239.43it/s]
+ 32%|███▏      | 63.0/196.0 [00:00<00:00, 247.22it/s]
+ 33%|███▎      | 65.0/196.0 [00:00<00:00, 255.03it/s]
+ 34%|███▍      | 67.0/196.0 [00:00<00:00, 262.83it/s]
+ 35%|███▌      | 69.0/196.0 [00:00<00:00, 270.63it/s]
+ 36%|███▌      | 71.0/196.0 [00:00<00:00, 278.41it/s]
+ 37%|███▋      | 73.0/196.0 [00:00<00:00, 286.20it/s]
+ 38%|███▊      | 75.0/196.0 [00:00<00:00, 294.00it/s]
+ 39%|███▉      | 77.0/196.0 [00:00<00:00, 301.79it/s]
+ 40%|████      | 79.0/196.0 [00:00<00:00, 309.58it/s]
+ 41%|████▏     | 81.0/196.0 [00:00<00:00, 317.36it/s]
+ 42%|████▏     | 83.0/196.0 [00:00<00:00, 325.11it/s]
+ 43%|████▎     | 85.0/196.0 [00:00<00:00, 332.89it/s]
+ 44%|████▍     | 87.0/196.0 [00:00<00:00, 340.66it/s]
+ 45%|████▌     | 89.0/196.0 [00:00<00:00, 348.44it/s]
+ 46%|████▋     | 91.0/196.0 [00:00<00:00, 356.21it/s]
+ 47%|████▋     | 93.0/196.0 [00:00<00:00, 363.96it/s]
+ 48%|████▊     | 95.0/196.0 [00:00<00:00, 371.73it/s]
+ 49%|████▉     | 97.0/196.0 [00:00<00:00, 379.49it/s]
+ 50%|█████     | 98.0/196.0 [00:00<00:00, 383.34it/s]
+ 51%|█████     | 100.0/196.0 [00:00<00:00, 391.10it/s]
+ 52%|█████▏    | 102.0/196.0 [00:00<00:00, 398.86it/s]
+ 53%|█████▎    | 104.0/196.0 [00:00<00:00, 406.59it/s]
+ 54%|█████▍    | 106.0/196.0 [00:00<00:00, 414.34it/s]
+ 55%|█████▌    | 108.0/196.0 [00:00<00:00, 422.08it/s]
+ 56%|█████▌    | 110.0/196.0 [00:00<00:00, 429.83it/s]
+ 57%|█████▋    | 112.0/196.0 [00:00<00:00, 437.57it/s]
+ 58%|█████▊    | 114.0/196.0 [00:00<00:00, 445.31it/s]
+ 59%|█████▉    | 116.0/196.0 [00:00<00:00, 453.06it/s]
+ 60%|██████    | 118.0/196.0 [00:00<00:00, 460.81it/s]
+ 61%|██████    | 120.0/196.0 [00:00<00:00, 468.55it/s]
+ 62%|██████▏   | 122.0/196.0 [00:00<00:00, 476.29it/s]
+ 63%|██████▎   | 124.0/196.0 [00:00<00:00, 484.03it/s]
+ 64%|██████▍   | 126.0/196.0 [00:00<00:00, 491.75it/s]
+ 65%|██████▌   | 128.0/196.0 [00:00<00:00, 499.45it/s]
+ 66%|██████▋   | 130.0/196.0 [00:00<00:00, 507.17it/s]
+ 67%|██████▋   | 132.0/196.0 [00:00<00:00, 514.90it/s]
+ 68%|██████▊   | 134.0/196.0 [00:00<00:00, 522.63it/s]
+ 69%|██████▉   | 136.0/196.0 [00:00<00:00, 530.36it/s]
+ 70%|███████   | 138.0/196.0 [00:00<00:00, 538.09it/s]
+ 71%|███████▏  | 140.0/196.0 [00:00<00:00, 545.77it/s]
+ 72%|███████▏  | 142.0/196.0 [00:00<00:00, 553.46it/s]
+ 73%|███████▎  | 144.0/196.0 [00:00<00:00, 561.14it/s]
+ 74%|███████▍  | 146.0/196.0 [00:00<00:00, 568.85it/s]
+ 75%|███████▌  | 147.0/196.0 [00:00<00:00, 572.64it/s]
+ 76%|███████▌  | 149.0/196.0 [00:00<00:00, 580.35it/s]
+ 77%|███████▋  | 151.0/196.0 [00:00<00:00, 588.01it/s]
+ 78%|███████▊  | 153.0/196.0 [00:00<00:00, 595.50it/s]
+ 79%|███████▉  | 155.0/196.0 [00:00<00:00, 603.04it/s]
+ 80%|████████  | 157.0/196.0 [00:00<00:00, 610.70it/s]
+ 81%|████████  | 159.0/196.0 [00:00<00:00, 618.35it/s]
+ 82%|████████▏ | 161.0/196.0 [00:00<00:00, 625.99it/s]
+ 83%|████████▎ | 163.0/196.0 [00:00<00:00, 633.43it/s]
+ 84%|████████▍ | 165.0/196.0 [00:00<00:00, 641.06it/s]
+ 85%|████████▌ | 167.0/196.0 [00:00<00:00, 648.64it/s]
+ 86%|████████▌ | 169.0/196.0 [00:00<00:00, 656.31it/s]
+ 87%|████████▋ | 171.0/196.0 [00:00<00:00, 663.97it/s]
+ 88%|████████▊ | 173.0/196.0 [00:00<00:00, 671.63it/s]
+ 89%|████████▉ | 175.0/196.0 [00:00<00:00, 679.30it/s]
+ 90%|█████████ | 177.0/196.0 [00:00<00:00, 686.74it/s]
+ 91%|█████████▏| 179.0/196.0 [00:00<00:00, 694.28it/s]
+ 92%|█████████▏| 181.0/196.0 [00:00<00:00, 701.82it/s]
+ 93%|█████████▎| 183.0/196.0 [00:00<00:00, 709.42it/s]
+ 94%|█████████▍| 185.0/196.0 [00:00<00:00, 716.99it/s]
+ 95%|█████████▌| 187.0/196.0 [00:00<00:00, 724.62it/s]
+ 96%|█████████▋| 189.0/196.0 [00:00<00:00, 732.25it/s]
+ 97%|█████████▋| 191.0/196.0 [00:00<00:00, 739.88it/s]
+ 98%|█████████▊| 193.0/196.0 [00:00<00:00, 747.45it/s]
+ 99%|█████████▉| 195.0/196.0 [00:00<00:00, 755.08it/s]
+100%|██████████| 196.0/196.0 [00:00<00:00, 758.67it/s]
+100%|██████████| 196.0/196.0 [00:00<00:00, 758.49it/s]
+  0%|          | 1.0/814.0 [00:00<03:30,  3.86it/s]   
+  1%|          | 9.0/814.0 [00:00<00:23, 34.70it/s]
+  2%|▏         | 17.0/814.0 [00:00<00:12, 65.47it/s]
+  3%|▎         | 25.0/814.0 [00:00<00:08, 96.09it/s]
+  4%|▍         | 33.0/814.0 [00:00<00:06, 126.67it/s]
+  5%|▌         | 41.0/814.0 [00:00<00:04, 157.27it/s]
+  6%|▌         | 49.0/814.0 [00:00<00:04, 187.76it/s]
+  7%|▋         | 57.0/814.0 [00:00<00:03, 218.24it/s]
+  8%|▊         | 66.0/814.0 [00:00<00:02, 252.48it/s]
+  9%|▉         | 74.0/814.0 [00:00<00:02, 282.82it/s]
+ 10%|█         | 82.0/814.0 [00:00<00:02, 313.22it/s]
+ 11%|█         | 90.0/814.0 [00:00<00:02, 343.55it/s]
+ 12%|█▏        | 98.0/814.0 [00:00<00:01, 373.93it/s]
+ 13%|█▎        | 106.0/814.0 [00:00<00:01, 404.08it/s]
+ 14%|█▍        | 114.0/814.0 [00:00<00:01, 434.09it/s]
+ 15%|█▌        | 123.0/814.0 [00:00<00:01, 467.98it/s]
+ 16%|█▌        | 131.0/814.0 [00:00<00:01, 497.92it/s]
+ 17%|█▋        | 139.0/814.0 [00:00<00:01, 527.78it/s]
+ 18%|█▊        | 147.0/814.0 [00:00<00:01, 557.67it/s]
+ 19%|█▉        | 155.0/814.0 [00:00<00:01, 587.74it/s]
+ 20%|██        | 163.0/814.0 [00:00<00:01, 617.46it/s]
+ 21%|██        | 171.0/814.0 [00:00<00:00, 647.53it/s]
+ 22%|██▏       | 180.0/814.0 [00:00<00:00, 680.94it/s]
+ 23%|██▎       | 188.0/814.0 [00:00<00:00, 710.83it/s]
+ 24%|██▍       | 196.0/814.0 [00:00<00:00, 740.87it/s]
+ 25%|██▌       | 204.0/814.0 [00:00<00:00, 770.88it/s]
+ 26%|██▌       | 212.0/814.0 [00:00<00:00, 800.40it/s]
+ 27%|██▋       | 220.0/814.0 [00:00<00:00, 830.08it/s]
+ 28%|██▊       | 228.0/814.0 [00:00<00:00, 859.48it/s]
+ 29%|██▉       | 237.0/814.0 [00:00<00:00, 892.88it/s]
+ 30%|███       | 245.0/814.0 [00:00<00:00, 922.11it/s]
+ 31%|███       | 253.0/814.0 [00:00<00:00, 951.39it/s]
+ 32%|███▏      | 261.0/814.0 [00:00<00:00, 980.32it/s]
+ 33%|███▎      | 269.0/814.0 [00:00<00:00, 1009.24it/s]
+ 34%|███▍      | 277.0/814.0 [00:00<00:00, 1038.64it/s]
+ 35%|███▌      | 285.0/814.0 [00:00<00:00, 1068.31it/s]
+ 36%|███▌      | 294.0/814.0 [00:00<00:00, 1101.67it/s]
+ 37%|███▋      | 302.0/814.0 [00:00<00:00, 1131.18it/s]
+ 38%|███▊      | 310.0/814.0 [00:00<00:00, 1160.74it/s]
+ 39%|███▉      | 318.0/814.0 [00:00<00:00, 1190.39it/s]
+ 40%|████      | 326.0/814.0 [00:00<00:00, 1219.20it/s]
+ 41%|████      | 334.0/814.0 [00:00<00:00, 1248.69it/s]
+ 42%|████▏     | 342.0/814.0 [00:00<00:00, 1277.37it/s]
+ 43%|████▎     | 351.0/814.0 [00:00<00:00, 1310.46it/s]
+ 44%|████▍     | 359.0/814.0 [00:00<00:00, 1339.96it/s]
+ 45%|████▌     | 367.0/814.0 [00:00<00:00, 1369.57it/s]
+ 46%|████▌     | 375.0/814.0 [00:00<00:00, 1399.14it/s]
+ 47%|████▋     | 383.0/814.0 [00:00<00:00, 1428.77it/s]
+ 48%|████▊     | 391.0/814.0 [00:00<00:00, 1458.24it/s]
+ 49%|████▉     | 399.0/814.0 [00:00<00:00, 1487.80it/s]
+ 50%|█████     | 407.0/814.0 [00:00<00:00, 1517.42it/s]
+ 51%|█████     | 416.0/814.0 [00:00<00:00, 1550.64it/s]
+ 52%|█████▏    | 424.0/814.0 [00:00<00:00, 1580.14it/s]
+ 53%|█████▎    | 432.0/814.0 [00:00<00:00, 1609.72it/s]
+ 54%|█████▍    | 440.0/814.0 [00:00<00:00, 1639.30it/s]
+ 55%|█████▌    | 448.0/814.0 [00:00<00:00, 1668.82it/s]
+ 56%|█████▌    | 456.0/814.0 [00:00<00:00, 1698.29it/s]
+ 57%|█████▋    | 464.0/814.0 [00:00<00:00, 1727.59it/s]
+ 58%|█████▊    | 473.0/814.0 [00:00<00:00, 1760.55it/s]
+ 59%|█████▉    | 481.0/814.0 [00:00<00:00, 1789.83it/s]
+ 60%|██████    | 489.0/814.0 [00:00<00:00, 1819.30it/s]
+ 61%|██████    | 497.0/814.0 [00:00<00:00, 1848.80it/s]
+ 62%|██████▏   | 505.0/814.0 [00:00<00:00, 1878.25it/s]
+ 63%|██████▎   | 513.0/814.0 [00:00<00:00, 1907.75it/s]
+ 64%|██████▍   | 521.0/814.0 [00:00<00:00, 1937.08it/s]
+ 65%|██████▌   | 530.0/814.0 [00:00<00:00, 1970.29it/s]
+ 66%|██████▌   | 538.0/814.0 [00:00<00:00, 1999.67it/s]
+ 67%|██████▋   | 546.0/814.0 [00:00<00:00, 2029.10it/s]
+ 68%|██████▊   | 554.0/814.0 [00:00<00:00, 2058.57it/s]
+ 69%|██████▉   | 562.0/814.0 [00:00<00:00, 2088.05it/s]
+ 70%|███████   | 570.0/814.0 [00:00<00:00, 2117.47it/s]
+ 71%|███████   | 578.0/814.0 [00:00<00:00, 2146.91it/s]
+ 72%|███████▏  | 587.0/814.0 [00:00<00:00, 2179.59it/s]
+ 73%|███████▎  | 595.0/814.0 [00:00<00:00, 2208.90it/s]
+ 74%|███████▍  | 603.0/814.0 [00:00<00:00, 2238.01it/s]
+ 75%|███████▌  | 611.0/814.0 [00:00<00:00, 2267.10it/s]
+ 76%|███████▌  | 619.0/814.0 [00:00<00:00, 2296.35it/s]
+ 77%|███████▋  | 627.0/814.0 [00:00<00:00, 2325.02it/s]
+ 78%|███████▊  | 635.0/814.0 [00:00<00:00, 2353.45it/s]
+ 79%|███████▉  | 644.0/814.0 [00:00<00:00, 2386.11it/s]
+ 80%|████████  | 652.0/814.0 [00:00<00:00, 2415.05it/s]
+ 81%|████████  | 660.0/814.0 [00:00<00:00, 2443.91it/s]
+ 82%|████████▏ | 668.0/814.0 [00:00<00:00, 2472.54it/s]
+ 83%|████████▎ | 676.0/814.0 [00:00<00:00, 2500.15it/s]
+ 84%|████████▍ | 684.0/814.0 [00:00<00:00, 2528.91it/s]
+ 85%|████████▌ | 692.0/814.0 [00:00<00:00, 2557.89it/s]
+ 86%|████████▌ | 701.0/814.0 [00:00<00:00, 2590.72it/s]
+ 87%|████████▋ | 709.0/814.0 [00:00<00:00, 2619.64it/s]
+ 88%|████████▊ | 717.0/814.0 [00:00<00:00, 2648.78it/s]
+ 89%|████████▉ | 725.0/814.0 [00:00<00:00, 2677.80it/s]
+ 90%|█████████ | 733.0/814.0 [00:00<00:00, 2706.76it/s]
+ 91%|█████████ | 741.0/814.0 [00:00<00:00, 2735.66it/s]
+ 92%|█████████▏| 749.0/814.0 [00:00<00:00, 2764.24it/s]
+ 93%|█████████▎| 758.0/814.0 [00:00<00:00, 2796.65it/s]
+ 94%|█████████▍| 766.0/814.0 [00:00<00:00, 2825.54it/s]
+ 95%|█████████▌| 774.0/814.0 [00:00<00:00, 2854.52it/s]
+ 96%|█████████▌| 782.0/814.0 [00:00<00:00, 2883.27it/s]
+ 97%|█████████▋| 790.0/814.0 [00:00<00:00, 2912.06it/s]
+ 98%|█████████▊| 798.0/814.0 [00:00<00:00, 2940.77it/s]
+ 99%|█████████▉| 806.0/814.0 [00:00<00:00, 2968.33it/s]
+100%|██████████| 814.0/814.0 [00:00<00:00, 2996.42it/s]
+100%|██████████| 814.0/814.0 [00:00<00:00, 2995.82it/s]
+  0%|          | 0.0/543.0 [00:00<?, ?it/s]            
+  1%|          | 6.0/543.0 [00:00<00:24, 21.63it/s]
+  2%|▏         | 12.0/543.0 [00:00<00:12, 43.13it/s]
+  3%|▎         | 17.0/543.0 [00:00<00:08, 61.01it/s]
+  4%|▍         | 22.0/543.0 [00:00<00:06, 78.79it/s]
+  5%|▌         | 28.0/543.0 [00:00<00:05, 100.16it/s]
+  6%|▌         | 33.0/543.0 [00:00<00:04, 117.89it/s]
+  7%|▋         | 39.0/543.0 [00:00<00:03, 139.19it/s]
+  8%|▊         | 44.0/543.0 [00:00<00:03, 156.73it/s]
+  9%|▉         | 49.0/543.0 [00:00<00:02, 174.48it/s]
+ 10%|█         | 55.0/543.0 [00:00<00:02, 195.73it/s]
+ 11%|█         | 60.0/543.0 [00:00<00:02, 210.99it/s]
+ 12%|█▏        | 66.0/543.0 [00:00<00:02, 231.98it/s]
+ 14%|█▎        | 74.0/543.0 [00:00<00:01, 259.76it/s]
+ 14%|█▍        | 77.0/543.0 [00:00<00:01, 269.88it/s]
+ 15%|█▌        | 82.0/543.0 [00:00<00:01, 287.00it/s]
+ 16%|█▌        | 88.0/543.0 [00:00<00:01, 307.65it/s]
+ 17%|█▋        | 93.0/543.0 [00:00<00:01, 324.96it/s]
+ 18%|█▊        | 100.0/543.0 [00:00<00:01, 349.14it/s]
+ 19%|█▉        | 104.0/543.0 [00:00<00:01, 362.93it/s]
+ 20%|██        | 111.0/543.0 [00:00<00:01, 387.25it/s]
+ 21%|██        | 115.0/543.0 [00:00<00:01, 400.91it/s]
+ 22%|██▏       | 122.0/543.0 [00:00<00:00, 425.12it/s]
+ 23%|██▎       | 125.0/543.0 [00:00<00:00, 435.26it/s]
+ 24%|██▍       | 132.0/543.0 [00:00<00:00, 459.40it/s]
+ 25%|██▌       | 136.0/543.0 [00:00<00:00, 473.12it/s]
+ 27%|██▋       | 144.0/543.0 [00:00<00:00, 500.67it/s]
+ 27%|██▋       | 147.0/543.0 [00:00<00:00, 510.78it/s]
+ 28%|██▊       | 153.0/543.0 [00:00<00:00, 531.36it/s]
+ 29%|██▉       | 158.0/543.0 [00:00<00:00, 548.49it/s]
+ 30%|███       | 165.0/543.0 [00:00<00:00, 572.24it/s]
+ 31%|███▏      | 170.0/543.0 [00:00<00:00, 589.18it/s]
+ 32%|███▏      | 176.0/543.0 [00:00<00:00, 609.77it/s]
+ 34%|███▎      | 183.0/543.0 [00:00<00:00, 633.78it/s]
+ 34%|███▍      | 185.0/543.0 [00:00<00:00, 640.20it/s]
+ 35%|███▌      | 192.0/543.0 [00:00<00:00, 663.23it/s]
+ 37%|███▋      | 200.0/543.0 [00:00<00:00, 690.59it/s]
+ 37%|███▋      | 201.0/543.0 [00:00<00:00, 693.82it/s]
+ 38%|███▊      | 208.0/543.0 [00:00<00:00, 717.69it/s]
+ 39%|███▉      | 213.0/543.0 [00:00<00:00, 734.50it/s]
+ 41%|████      | 220.0/543.0 [00:00<00:00, 758.34it/s]
+ 41%|████      | 223.0/543.0 [00:00<00:00, 768.43it/s]
+ 42%|████▏     | 229.0/543.0 [00:00<00:00, 788.54it/s]
+ 43%|████▎     | 234.0/543.0 [00:00<00:00, 805.35it/s]
+ 44%|████▍     | 239.0/543.0 [00:00<00:00, 821.83it/s]
+ 45%|████▌     | 245.0/543.0 [00:00<00:00, 841.46it/s]
+ 47%|████▋     | 254.0/543.0 [00:00<00:00, 871.85it/s]
+ 47%|████▋     | 256.0/543.0 [00:00<00:00, 878.38it/s]
+ 48%|████▊     | 261.0/543.0 [00:00<00:00, 894.74it/s]
+ 49%|████▉     | 268.0/543.0 [00:00<00:00, 917.64it/s]
+ 50%|█████     | 273.0/543.0 [00:00<00:00, 934.27it/s]
+ 51%|█████     | 278.0/543.0 [00:00<00:00, 951.07it/s]
+ 53%|█████▎    | 287.0/543.0 [00:00<00:00, 981.66it/s]
+ 53%|█████▎    | 288.0/543.0 [00:00<00:00, 984.09it/s]
+ 54%|█████▍    | 294.0/543.0 [00:00<00:00, 1004.03it/s]
+ 56%|█████▌    | 303.0/543.0 [00:00<00:00, 1034.35it/s]
+ 56%|█████▋    | 306.0/543.0 [00:00<00:00, 1044.15it/s]
+ 57%|█████▋    | 310.0/543.0 [00:00<00:00, 1057.05it/s]
+ 58%|█████▊    | 315.0/543.0 [00:00<00:00, 1073.47it/s]
+ 59%|█████▉    | 321.0/543.0 [00:00<00:00, 1093.23it/s]
+ 60%|██████    | 326.0/543.0 [00:00<00:00, 1108.74it/s]
+ 61%|██████    | 332.0/543.0 [00:00<00:00, 1127.78it/s]
+ 62%|██████▏   | 338.0/543.0 [00:00<00:00, 1147.67it/s]
+ 63%|██████▎   | 343.0/543.0 [00:00<00:00, 1163.94it/s]
+ 64%|██████▍   | 349.0/543.0 [00:00<00:00, 1183.79it/s]
+ 65%|██████▌   | 355.0/543.0 [00:00<00:00, 1203.31it/s]
+ 66%|██████▌   | 359.0/543.0 [00:00<00:00, 1216.42it/s]
+ 67%|██████▋   | 365.0/543.0 [00:00<00:00, 1235.55it/s]
+ 68%|██████▊   | 371.0/543.0 [00:00<00:00, 1255.28it/s]
+ 69%|██████▉   | 375.0/543.0 [00:00<00:00, 1267.51it/s]
+ 70%|███████   | 382.0/543.0 [00:00<00:00, 1290.70it/s]
+ 71%|███████▏  | 388.0/543.0 [00:00<00:00, 1310.66it/s]
+ 72%|███████▏  | 392.0/543.0 [00:00<00:00, 1323.76it/s]
+ 73%|███████▎  | 398.0/543.0 [00:00<00:00, 1343.18it/s]
+ 74%|███████▍  | 402.0/543.0 [00:00<00:00, 1355.81it/s]
+ 75%|███████▌  | 408.0/543.0 [00:00<00:00, 1375.62it/s]
+ 76%|███████▋  | 415.0/543.0 [00:00<00:00, 1398.15it/s]
+ 77%|███████▋  | 419.0/543.0 [00:00<00:00, 1410.33it/s]
+ 78%|███████▊  | 426.0/543.0 [00:00<00:00, 1433.33it/s]
+ 79%|███████▉  | 429.0/543.0 [00:00<00:00, 1441.97it/s]
+ 80%|████████  | 435.0/543.0 [00:00<00:00, 1461.34it/s]
+ 81%|████████  | 440.0/543.0 [00:00<00:00, 1476.98it/s]
+ 82%|████████▏ | 446.0/543.0 [00:00<00:00, 1496.38it/s]
+ 83%|████████▎ | 451.0/543.0 [00:00<00:00, 1510.06it/s]
+ 84%|████████▍ | 457.0/543.0 [00:00<00:00, 1529.33it/s]
+ 85%|████████▌ | 462.0/543.0 [00:00<00:00, 1544.99it/s]
+ 86%|████████▌ | 468.0/543.0 [00:00<00:00, 1564.16it/s]
+ 87%|████████▋ | 473.0/543.0 [00:00<00:00, 1580.00it/s]
+ 88%|████████▊ | 478.0/543.0 [00:00<00:00, 1596.20it/s]
+ 89%|████████▉ | 484.0/543.0 [00:00<00:00, 1615.17it/s]
+ 90%|█████████ | 489.0/543.0 [00:00<00:00, 1630.81it/s]
+ 91%|█████████ | 495.0/543.0 [00:00<00:00, 1650.09it/s]
+ 92%|█████████▏| 500.0/543.0 [00:00<00:00, 1664.28it/s]
+ 93%|█████████▎| 506.0/543.0 [00:00<00:00, 1683.18it/s]
+ 94%|█████████▍| 512.0/543.0 [00:00<00:00, 1701.74it/s]
+ 95%|█████████▌| 516.0/543.0 [00:00<00:00, 1703.28it/s]
+ 96%|█████████▌| 522.0/543.0 [00:00<00:00, 1718.43it/s]
+ 97%|█████████▋| 528.0/543.0 [00:00<00:00, 1734.82it/s]
+ 98%|█████████▊| 533.0/543.0 [00:00<00:00, 1748.45it/s]
+ 99%|█████████▉| 538.0/543.0 [00:00<00:00, 1762.59it/s]
+100%|██████████| 543.0/543.0 [00:00<00:00, 1776.39it/s]
+100%|██████████| 543.0/543.0 [00:00<00:00, 1775.87it/s]
+100%|██████████| 543.0/543.0 [00:00<00:00, 900.74it/s] 
+Install: pip packages
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'gguf>=0.13.0']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting gguf>=0.13.0
+  Downloading http://pypi-mirror.modal.local:5555/simple/gguf/gguf-0.18.0-py3-none-any.whl.metadata (4.5 kB)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.11/site-packages (from gguf>=0.13.0) (2.4.3)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.11/site-packages (from gguf>=0.13.0) (6.0.3)
+Requirement already satisfied: requests>=2.25 in /usr/local/lib/python3.11/site-packages (from gguf>=0.13.0) (2.33.0)
+Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.11/site-packages (from gguf>=0.13.0) (4.67.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.11/site-packages (from requests>=2.25->gguf>=0.13.0) (3.4.6)
+Requirement already satisfied: idna<4,>=2.5 in /usr/local/lib/python3.11/site-packages (from requests>=2.25->gguf>=0.13.0) (3.11)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.11/site-packages (from requests>=2.25->gguf>=0.13.0) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in /usr/local/lib/python3.11/site-packages (from requests>=2.25->gguf>=0.13.0) (2026.2.25)
+Downloading http://pypi-mirror.modal.local:5555/simple/gguf/gguf-0.18.0-py3-none-any.whl (114 kB)
+Installing collected packages: gguf
+Successfully installed gguf-0.18.0
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'sentencepiece']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Requirement already satisfied: sentencepiece in /usr/local/lib/python3.11/site-packages (0.2.1)
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+
+## ComfyUI-Manager: EXECUTE => ['/usr/local/bin/python', '-m', 'pip', 'install',
+'protobuf']
+Looking in indexes: http://pypi-mirror.modal.local:5555/simple
+Collecting protobuf
+  Downloading http://pypi-mirror.modal.local:5555/simple/protobuf/protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Downloading http://pypi-mirror.modal.local:5555/simple/protobuf/protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl (324 kB)
+Installing collected packages: protobuf
+Successfully installed protobuf-7.34.1
+
+[notice] A new release of pip is available: 25.2 -> 26.0.1
+[notice] To update, run: pip install --upgrade pip
+Installation was successful.
+3/3 [INSTALLED] ComfyUI-GGUF                                      [UNKNOWN]
+Saving image...
+Image saved, took 1.19s
+
+Built image im-T3ffuaAD2rKvuqAf6eDMNc in 29.41s
+
+
+✓ Created objects.
+├── 🔨 Created mount /workspaces/modal-comfyui/comfyui.py
+├── 🔨 Created mount PythonPackage:models, PythonPackage:plugins
+├── 🔨 Created function download_all.
+├── 🔨 Created mount /workspaces/modal-comfyui/workflow_api.json
+└── 🔨 Created web function ui => https://chlevin135--modal-comfyui-ui.modal.run
+✓ App deployed in 64.259s! 🎉
+
+View Deployment: https://modal.com/apps/chlevin135/main/deployed/modal-comfyui
