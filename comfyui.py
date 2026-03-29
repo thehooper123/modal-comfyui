@@ -79,11 +79,20 @@ def download_external_model(url: str, filename: str, model_dir: str):
 
 
 def download_all():
+    """Download models from HuggingFace. Skips if repos are private/gated."""
     for model in models:
-        hf_download(model["repo_id"], model["filename"], model["model_dir"])
+        try:
+            hf_download(model["repo_id"], model["filename"], model["model_dir"])
+        except Exception as e:
+            print(f"⚠️  Could not download {model['repo_id']}/{model['filename']}: {e}")
+            print("    This may be a private/gated repo. Models can be uploaded to the volume manually.")
 
     for model in models_ext:
-        download_external_model(model["url"], model["filename"], model["model_dir"])
+        try:
+            download_external_model(model["url"], model["filename"], model["model_dir"])
+        except Exception as e:
+            print(f"⚠️  Could not download {model['filename']}: {e}")
+            print("    Check the URL or upload manually to the volume.")
 
 
 vol = modal.Volume.from_name("hf-hub-cache", create_if_missing=True)
@@ -101,7 +110,10 @@ image = (
 )
 
 # download models
-image = image.env({"HF_HUB_ENABLE_HF_TRANSFER": "1"}).run_function(
+image = image.env({
+    "HF_HUB_ENABLE_HF_TRANSFER": "1",
+    "HF_TOKEN": "<REDACTED>"
+}).run_function(
     download_all, volumes={"/cache": vol, "/model-weights": model_weights_vol}
 )
 
