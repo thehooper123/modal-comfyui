@@ -10,8 +10,8 @@ wheels/
 .venv
 
 # Models and Custom nodes
-models.py
-plugins.py
+# models.py  # (Commented out: including FitSweetTreat config)
+# plugins.py  # (Commented out: including FitSweetTreat config)
 
 # Workflow
-workflow_api.json
+# workflow_api.json  # (Commented out: including FitSweetTreat pipeline)

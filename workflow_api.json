@@ -1,0 +1,217 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "ltx-2.3-22b-dev.safetensors"
+    },
+    "class_type": "LowVRAMCheckpointLoader",
+    "_meta": {
+      "title": "Load Checkpoint (Low VRAM)"
+    }
+  },
+  "2": {
+    "inputs": {
+      "gemma_path": "comfy_gemma_3_12B_it.safetensors",
+      "ltxv_path": [
+        "1",
+        1
+      ],
+      "max_length": 1024
+    },
+    "class_type": "LTXVGemmaCLIPModelLoader",
+    "_meta": {
+      "title": "Load LTX-V Gemma CLIP Model"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "A delicious turkey taco crisp bowl with fresh ingredients, vibrant colors, well-lit food photography style, appetizing presentation"
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive)"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "blurry, low quality, distorted, dark, poorly lit"
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative)"
+    }
+  },
+  "5": {
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Conditioning)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "lora_name": "ltxv/ltx2/ltx-2.3-22b-distilled-lora-384.safetensors",
+      "strength_model": 1.0
+    },
+    "class_type": "LTXVQ8LoraModelLoader",
+    "_meta": {
+      "title": "Load LTX-V Q8 LoRA"
+    }
+  },
+  "8": {
+    "inputs": {
+      "width": 768,
+      "height": 512,
+      "length": 97
+    },
+    "class_type": "EmptyLTXVLatentVideo",
+    "_meta": {
+      "title": "Empty LTX-V Latent Video"
+    }
+  },
+  "9": {
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "sigmas": "1.0,0.9933,0.9850,0.9767,0.9008,0.6180,0.5000,0.4000,0.3000,0.2000,0.1500,0.1000,0.0900,0.0800,0.0700,0.0600,0.0500,0.0400,0.0300,0.0100",
+      "cfg_values": "3.0",
+      "stg_scale_values": "1.0",
+      "stg_rescale_values": "0.7",
+      "stg_layers_indices": "14"
+    },
+    "class_type": "STGGuiderAdvanced",
+    "_meta": {
+      "title": "STG Guider Advanced"
+    }
+  },
+  "10": {
+    "inputs": {
+      "steps": 20,
+      "max_shift": 2.05,
+      "base_shift": 0.95,
+      "stretch": true,
+      "terminal": 0.1
+    },
+    "class_type": "LTXVScheduler",
+    "_meta": {
+      "title": "LTX-V Scheduler"
+    }
+  },
+  "11": {
+    "inputs": {}
+    ,
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "12": {
+    "inputs": {
+      "seed": 42,
+      "steps": 20,
+      "cfg": 3.0,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1.0,
+      "model": [
+        "6",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "13": {
+    "inputs": {
+      "noise": [
+        "8",
+        0
+      ],
+      "guider": [
+        "9",
+        0
+      ],
+      "sampler": "euler",
+      "sigmas": [
+        "10",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "Sampler Custom Advanced"
+    }
+  },
+  "14": {
+    "inputs": {
+      "vae": [
+        "1",
+        2
+      ],
+      "latents": [
+        "13",
+        0
+      ],
+      "spatial_tiles": 4,
+      "temporal_tile_length": 16,
+      "working_device": "auto",
+      "working_dtype": "auto"
+    },
+    "class_type": "LTXVSpatioTemporalTiledVAEDecode",
+    "_meta": {
+      "title": "LTX-V Spatio-Temporal Tiled VAE Decode"
+    }
+  },
+  "15": {
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "frame_rate": 24,
+      "format": "video/h264-mp4",
+      "filename_prefix": "turkey_taco_crisp_bowl",
+      "save_output": true
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine"
+    }
+  }
+}
