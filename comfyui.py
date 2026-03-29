@@ -87,6 +87,8 @@ def download_all():
 
 
 vol = modal.Volume.from_name("hf-hub-cache", create_if_missing=True)
+model_weights_vol = modal.Volume.from_name("comfyui-models", create_if_missing=True)
+outputs_vol = modal.Volume.from_name("comfyui-outputs", create_if_missing=True)
 
 # construct images and install deps/custom nodes
 image = (
@@ -100,7 +102,7 @@ image = (
 
 # download models
 image = image.env({"HF_HUB_ENABLE_HF_TRANSFER": "1"}).run_function(
-    download_all, volumes={"/cache": vol}
+    download_all, volumes={"/cache": vol, "/model-weights": model_weights_vol}
 )
 
 
@@ -120,10 +122,37 @@ else:
 app = modal.App(name="modal-comfyui", image=image)
 
 
+def setup_extra_model_paths():
+    """Write extra_model_paths.yaml for ComfyUI to find models on mounted volume"""
+    import yaml
+    
+    config = {
+        "fitsweettreat": {
+            "base_path": "/model-weights",
+            "checkpoints": "checkpoints",
+            "clip": "text_encoders",
+            "loras": "loras",
+            "vae": "vae",
+        }
+    }
+    
+    model_paths_file = Path("/root/comfy/ComfyUI/web/extra_model_paths.yaml")
+    model_paths_file.parent.mkdir(parents=True, exist_ok=True)
+    
+    with open(model_paths_file, "w") as f:
+        yaml.dump(config, f)
+    
+    print(f"✅ Wrote extra_model_paths.yaml to {model_paths_file}")
+
+
 @app.function(
     max_containers=1,
-    gpu="L4",
-    volumes={"/cache": vol},
+    gpu="A100-80GB",
+    volumes={
+        "/cache": vol,
+        "/model-weights": model_weights_vol,
+        "/outputs": outputs_vol,
+    },
     scaledown_window=60,  # idle 1 minutes to shutdown
     enable_memory_snapshot=True,
     experimental_options={"enable_gpu_snapshot": True},
@@ -131,6 +160,9 @@ app = modal.App(name="modal-comfyui", image=image)
 @modal.concurrent(max_inputs=10)
 @modal.web_server(8000, startup_timeout=60)
 def ui():
+    setup_extra_model_paths()
+    
     _ = subprocess.Popen(
-        "comfy launch --background -- --listen 0.0.0.0 --port 8000", shell=True
+        "comfy launch --background -- --listen 0.0.0.0 --port 8000 --output-directory /outputs",
+        shell=True,
     )
